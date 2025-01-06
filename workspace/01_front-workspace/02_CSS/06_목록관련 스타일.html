@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>목록 관련 CSS 스타일</title>
+    <style>
+        #ul1{
+            list-style-type:disc;
+            list-style-type: circle;
+            list-style-type:square;
+            list-style-type:none;
+
+            list-style-image: url("/workspace/01_front-workspace/02_CSS/resources/images/phone.png");
+
+            list-style-position: outside;
+            list-style-position: inside; /* 들여쓰기 된 */
+        }
+
+        #ol1{
+            list-style-type : decimal;
+            list-style-type : decimal-leading-zero;
+            list-style-type : lower-alpha;
+            list-style-type : upper-alpha;
+
+            list-style-type : lower-roman;
+            list-style-type : upper-roman;
+
+            list-style-position: inside;
+        }
+    </style>
+</head>
+<body>
+    <h1>목록 관련 스타일(list~~)</h1>
+    <h3>list-style-type : 블릿 기호 변경하고자 할때 사용하는 스타일</h3>
+    <h3>list-sytle-image : 블릿 기호 이미지를 적용하고자 할 때 사용</h3>
+    <h3>list-style-position : 블릿 기호의 위치 조정할 때 사용</h3>
+    <pre>
+        *순서 없는 목록(ul)
+        선택자{
+            list-style-type : disc | circle | square | none;
+            list-style-image : url("적용하고자하는 이미지 경로");
+            list-style-position : inside | outside;
+        }
+        *순서 있는 목록(ol)
+        선택자{
+            (숫자)list-style-type : decimal | decimal-leading-zero;
+            (알파벳)list-style-type : lower-alpha | upper-alpha;
+            (아라비아숫자/로마자)list-style-type : lower-roman | upper-roman;
+        }
+    </pre>
+    <h4>순서없는 목록</h4>
+        <ul id="ul1">
+            <li>java</li>
+            <li>css</li>
+            <li>javascript</li>
+            <li>html</li>
+        </ul>
+        <ol id="ol1">
+            <li>hrllow!</li>
+            <li>HEFE!</li>
+            <li>NICE TO meet you</li>
+        </ol>
+</body>
+</html>
