@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 글꼴 관련 스타일</title>
+    <style>
+        #ff1{font-family:궁서체;}
+        #ff2{font-family: 고딕체;}
+        #ff3{font-family: 이윤서, 궁서체;}
+        /*첫번째 제시한 글꼴 없는 경우 대체할 글꼴을 나열함 */
+        .diphylleia-regular, #ff4 {
+            font-family: "Diphylleia", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .song-myung-regular {
+            font-family: "Song Myung", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        #fs1{ font-size: 20px; }
+        #fs2{ font-size: 1.5em; }
+        #fs3{ font-size: 180%; }
+
+        #fw1{font-weight:bold;} /* 700 */
+        #fw2{font-weight:bolder;}
+        #fw3{font-weight:lighter;} /* 100 */
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Song+Myung&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>글꼴 관련 스타일</h1>
+    <h3>font-family : 글꼴 지정</h3>
+    <pre>
+        선택자{
+            font-family:글꼴명;
+        }
+    </pre>
+    <!--p#ff$*3-->
+    <p id="ff1">글꼴 확인1</p>
+    <p id="ff2">글꼴 확인2</p>
+    <p id="ff3">글꼴 확인3</p>
+
+    <h3>외부웹 폰트 적용</h3>
+    <p>
+        웹 폰트 제공 사이트 : 
+        <a href="http://fonts.google.com" target="_blank">구글 웹 폰트</a>
+    </p>
+    <p class="diphylleia-regular">글꼴 획인 4</p>
+    <p id="ff4">안녕하세요 저는 이윤서입니다! 당신은 누구인가요????</p>
+    <h2 class="song-myung-regular">안녕하십니까! 22학번 컴융 이윤서입니다</h2>
+
+    <hr>
+    <h3>font-size: 글자 크기 지정</h3>
+    <pre>
+        선택자{
+            font-size:크기(px, em(배수))
+        }
+    </pre>
+    <ul>
+        <li id="fs1">고정크기(px) 확인</li>
+        <li id="fs2">가변크기(em) 확인2</li>
+        <li id="fs3">가변크기(%) 확인3</li>
+    </ul>
+
+    <hr>
+
+    <h3>font-weight: 글자 굵기 표현</h3>
+    <pre>
+        선택자{
+            font-weight:normal | bold | bolder | lighter | 100~900(사이 직접 지정);
+        }
+    </pre>
+    <ul>
+        <li>원래 글자</li>
+        <li id="fw1">굴게 표현</li>
+        <li id="fw2">원래 굵기 보다 굵게 표현</li>
+        <li id="fw3">원래 굵기 보다 가늘게 표현</li>
+    </ul>
+
+    <hr>
+
+    <h3>font-variant: 영문 텍스트 문구를 작은 크기의 대문자로 변경해주는 스타일</h3>
+
+    <pre>
+        선택자{
+            font-variant:small-caps;
+        }
+    </pre>
+    <p>I LOVE YOU</p>
+    <p style="font-variant: small-caps;">i love you</p>
+
+    <hr>
+
+    <h3>font-style: 글자 기울여서 표현</h3>
+    <pre>
+        선택자{
+            font-style:normal | italic | oblique;
+        }
+    </pre>
+    <em>em 태그</em>
+    <p style="font-style: italic;">ltalic: 기울임 글꼴</p>
+    <p style="font-style: oblique;">oblique: 기울임 글꼴</p>
+    <!--차이점: oblique 원래 글자를 기울여서 표현, italic 글꼴 자체를 기울이는 것-->
+</body>
+</html>
