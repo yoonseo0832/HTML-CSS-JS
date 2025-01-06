@@ -1,0 +1,100 @@
+
+/* 속성 선택자
+div 요소 중 name 속성 값이 "name1"와 일치하는 요소
+*/
+div[name=name1]{background-color: tomato;}
+div[name~=name1]{background-color:rgb(142, 204, 35)}
+div[class|=class]{background-color:rgb(52, 200, 219)}
+div[name^=na]{color:rgb(233, 74, 25)}
+div[class$=ss]{background-color: darkslategrey;}
+
+div[class*=i]{background-color: cornflowerblue;}
+
+.div-class[name~=name3]{background-color: rgb(36, 224, 146);}
+
+/* 클래스 선택자 .클래스명{}    ;  id 선택자 #아이디{}   
+   태그선택자  태그명{}     ;   전체 선택자  : *{}   */
+
+/* -------------- 자손 / 후손 선택자 -------------- */
+/* a >b : a 요소의 자손 중 b 요소만 모두 선택
+ */
+#parent > h4 {
+    background-color: chocolate;
+}
+
+/* id parent인 요소의 모든 자손 선택 */
+#parent > *{
+    color: pink;
+}
+
+/* 아이디 parent 요소 자손 중 ul 요소의 자손중 li 요소만
+*/
+#parent > ul > li{
+    background-color: cornflowerblue;
+}
+
+/* 아이디 parent 후손들의 글자색 변경 */
+#parent *{
+    color:blue;
+}
+
+#parent li{
+    color: green;
+}
+
+/* ------------동위선택자 ------*/
+/* 아이디 sibling 요소 바로 뒤 div 요소 하나만 선택 */
+#sibling + div{
+    background-color: indianred;
+}
+
+#sibling + ul{
+
+}
+/* -> 바로 뒤에 오는 요소가 ul 아니라서 선택되지 않음 */
+#sibling ~ul{
+    background-color:darkslategrey;
+}
+
+/* --------------- 상태 선택자 ------------*/
+/* input 요소의 type 속성 값이 checkbox인 요소중 체크된 상태의 요소 ------*/
+
+input[type=checkbox]:checked{
+    width:20px; height:20px;
+}
+
+input[type=checkbox]:checked + label{
+    font-size: 20px;
+}
+
+input[name ^= user]:focus{
+    background-color: brown;
+    color:bisque
+}
+
+button:enabled{
+    background-color: dodgerblue;
+}
+
+button:disabled{
+    background-color: dodgerblue;
+    opacity: 0.5; 
+    /*불투명도 설정(1은 보임, 0은 안보임, 사이를 조절함) */
+}
+
+/* ------------------ 반응 선택자 ---------------- */
+/* 클래스 속성 area 요소의 배경색, 가로세로=100px 적용 */
+.area{
+    background-color: blueviolet;
+    width:100px;
+    height:100px;
+    cursor: pointer;
+}
+
+#active-test:active{
+    background-color: hotpink;
+}
+
+#hover-test:hover{
+    background-color: crimson;
+} 

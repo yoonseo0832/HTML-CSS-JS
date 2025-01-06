@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>HTML 입력 관련 태그</title>
+</head>
+<body>
+    <h2>입력 양식 태그</h2>
+    <h3>input 태그</h3>
+    <p>
+        사용자에게 값을 입력받을 수 있는<br>
+        텍스트 상자 또는 체크 박스 등을 표시할 수 있음
+    </p>
+    <p>
+        input 태그는 인라인 요소라서 내용만 영역을 차지함
+    </p>
+    아이디: <input type="text" /><br>
+    비밀번호: <input type="password" /><br>
+    <!--password를 type으로 하면 입력할 때 보이지 않음-->
+    성별: <input type="radio"/>남성 <input type="radio"/>여성
+    <input type="submit" value="저장" />
+    <hr>
+    <h2>form 태그</h2>
+    <p>
+        form 태그 내에 submit 클릭시<br>
+        해당 form 태그 내에 작성된 사용자가 입력한 값들을 서버로 전달하면서<br>
+        요청하는 역할 수행
+    </p>
+    <br><br>
+    *action : 요청할 서버 주소(경로)<br>
+    => 해당 서버로 사용자가 form 내에 입력 태그들을 통해 작성한 값들을 전달
+    <br>*method : 요청 전송 방식 지정(get/post) 기본값(defult): get<br>
+    => get 방식 : 요청 시 사용자가 입력한 값들이 url에 노출되는 방식<br>
+    => post 방식 : 요청 시 사용자가 입력한 값들이 url에 노출되지 않는 방식
+    <br><br>
+    사용자가 입력한 값들은 key=value 형태로 전달하면서
+
+    <hr>
+    <form action="search" method="get">
+        검색어 : <input type="text" name="keyword" />
+        <input type="submit" value="검색" />
+    </form>
+    <br>
+    <form action="https://www.youtube.com/results" method="get">
+        <fieldset>
+            youtube search: <input type="text" name="search_query" />
+            <input type="submit" value="검색" />
+        </fieldset>
+    </form>
+    fieldset: 그룹으로 묶어주는 태그(테두리 표시)
+    legned: fieldset 으로 묶어진 그룹의 제목을 붙여주는 태그
+
+    <form>
+        <fieldset>
+            <legend>group1</legend>
+            input1: <input type="text" name="name1" /><br>
+            input2: <input type="text" name="name2" />
+        </fieldset>
+        <fieldset>
+            <legend>group2</legend>
+            input3: <input type="text" name="name3" /><br>
+            input4: <input type="text" name="name4" />
+        </fieldset>
+        <input type="submit" />
+    </form>
+    <hr>
+    <form>
+        <h2>텍스트와 관련된 input태그의 타임</h2>
+        <h3>type="text"</h3>
+        <ul>
+            <li>한 줄로 텍스트를 입력할 수 있는 텍스트 상자</li>
+            <li>input default</li>
+            <li>type 속성 생략/잘못된 입력인 경우 자동으로 text type이 적용됨</li>
+        </ul>
+        아이디: 
+        <input  type="text" 
+                name="userId" 
+                placeholder="아이디를 입력하시오"
+                maxlength="10"
+                required
+        />
+        <!--
+            *placeholder: 텍스트 상자의 설명 문구, 입력시 사라짐
+            *maxlength: 최대 입력 길이
+            *required: 필수 입력 항목을 지정(비밀번호), 입력하지 않으면 요청되지 않음.
+        -->
+
+        <h3>type="password"</h3>
+            <ul>
+                <il>비밀번호를 입력할 수 있는 텍스트 박스</il>
+                <il>사용자가 입력한 값을 숨겨주는 기능</il>
+            </ul>
+            비밀번호:
+            <input  type="password"
+                    name="userPwd"
+                    placeholder="영문, 숫자, 특수문자 *~15자 입력하시오"
+                    maxlength="15"
+                    required />
+        <h3>그 외 타입들</h3>
+        <ul>
+            <li>검색 타입: search, 검색에 특화된 타입, 텍스트랑 많이 다르지 않음</li>
+            <li>홈페이지: url, value=""안에 초기값을 입력할 수 있다</li>
+            <li>이메일: email</li>
+            <li>전화번호: tel</li>
+        </ul>
+        검색:<input type="search" name="keyword">
+        <br>
+        홈페이지:<input type="url" name="url" value="http://">
+        <br>
+        <input type="submit"/>
+        <br>
+        이메일:<input type="email" name="email">
+        <br>
+        전화번호:<input type="tel" name="tel">
+        <br>
+        <input type="submit" />
+    </form>
+</body>
+</html>

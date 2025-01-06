@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>select, option 태그</h1>
+    <ul>
+        <li>사용자가 직접 값을 입력하는 것이 아니라
+            제시한 여러 값들 중 선택할 경우
+        </li>
+        <li>
+            option와 select 태그 모두 시작과 끝 태그 있음 
+        </li>
+        <li>
+            제출 시 선택된 option 태그의 값 전달
+        </li>
+        <li>
+            각 option 태그의 value 속성이 지정되지 않는 경우
+            content 영역의 값이 전달됨
+        </li>
+        <li>
+            각 option 태그의 value 속성이 지정되어 있으면 해당 value 속성 값이 전달됨
+        </li>
+    </ul>
+    <form action="test">
+        언어:
+        <select name="lang">
+            <option value="ko">한국어</option>
+            <option value="jp">일본어</option>
+            <option value="ch">중국어</option>
+        </select>
+        <input type="submit" value="전달" />
+    </form>
+    <h2>datalist 태그</h2>
+    <ul>
+        <li>
+            사용자에게 직접 값읋 입력받거나 select처럼 목록을 통해 선택 받는 태그
+        </li>
+    </ul>
+    <form action="test">
+        과자: 
+        <input type="text" name="snack" list="snack-list">
+        <datalist id="snack-list">
+            <option value="s1">꼬북칩</option>
+            <option value="s2">포카칩</option>
+            <option value="s3">고래밥</option>
+            <option value="s4">양파링</option>
+        </datalist>
+        <input type="submit" value="저장">
+    </form>
+</body>
+</html>
