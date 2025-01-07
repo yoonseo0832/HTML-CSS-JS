@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - 레이아웃 스타일(1)</title>
+    <style>
+        .size-test{
+            border:10px solid pink;
+        }
+        #size1{
+            width:500px;
+            height: 300px;
+        }
+        #size2{
+            width: 50%;
+            height: 150px;
+        }
+        .red{background-color: red;}
+        .orange{background-color: orange;}
+        .yellow{background-color: yellow;}
+        .green{background-color: green;}
+        .blue{background-color: blue;}
+
+        .display-test{
+            border: 1px solid;
+            width: 100px;
+            height: 100px;
+        }
+        .inline{
+            display: inline;
+        }
+        .inline-block{
+            display: inline-block;
+        }
+        .block{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        * 블록 요소 : 한줄로 영역을 차지하는 요소 
+            => 줄바꿈 처리가 가능 ( div / p / pre / h3..)
+        * 인라인 요소 : content(내용)영역 부분만 차지하는 요소 
+            => 줄바꿈 안됨(옆으로 영역 차지) ex) span, small, label, input..
+        * 요소(element)  
+            => content(내용)영역 + padding 영역(안쪽 여백) + border 영역
+        * 요소 바깥쪽 영역 
+            => margin 영역(바깥쪽 간격)
+    -->
+    <h1>레이아웃 관련 스타일(1)</h1>
+    <h3>width, height(가로/세로)</h3>
+    <p>
+        기본적으로 내용을 차지하는 content (내용)영역의 가로와 세로를 조절하는 스타일 속성
+    </p>
+    <h4>고정크기(px)</h4>
+    <div class="size-test" id="size1">
+
+    </div>
+    <h4>가변크기(%)</h4>
+    <div class="size-test" id="size2">
+    </div>
+
+    <hr>
+
+    <h3>display: 화면 배치 방법 변경</h3>
+    <pre>
+        선택자{
+            display: inline | block | flex | inline-block ;
+        }
+    </pre>
+    <h4>display:inline;</h4>
+    <!--.display-test.inline*3-->
+    <div class="display-test inline red">방탄소년단</div>
+    <div class="display-test inline orange">뉴진스</div>
+    <div class="display-test inline yellow">에스파</div>
+    <div class="display-test inline green">트와이스</div>
+    <div class="display-test inline blue">블랙핑크</div>
+    
+    <p>display: inline 스타일 적용하면 width, height 스타일 적용되지 않음</p>
+    <br><br>
+    <hr>
+    <h4>display: inline-block</h4>
+
+    <div class="display-test inline-block red">월</div>
+    <div class="display-test inline-block orange">화요일</div>
+    <div class="display-test inline-block yellow">수요일</div>
+    <div class="display-test inline-block green">목요일</div>
+    <div class="display-test inline-block blue">금요일</div>
+    <br><br>
+    <p>display:inline-block 스타일을 적용하게 되면 <br>
+    인라인 요소 특징 + 블록 요소 특징을 모두 가지는 요소가 됨<br>
+    inline: (옆으로 배치가 되고), block: (width/height 스타일 적용)
+    </p>
+    <hr>
+    <h4>display: block</h4>
+    <span class="display-test block red">인라인1</span>
+    <span class="display-test block green">인라인2</span>
+    <span class="display-test block yellow">인라인3</span>
+    <br>
+</body>
+</html>
