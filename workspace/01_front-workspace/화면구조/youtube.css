@@ -1,0 +1,106 @@
+<style>
+    /* 전체 래퍼 스타일 */
+    .wrap {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: #181818;
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+
+    /* 헤더 스타일 */
+    #header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+        background-color: #202020;
+        border-bottom: 1px solid #333;
+    }
+
+    #header .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #FF0000; /* YouTube의 로고 색상 */
+    }
+
+    #header input[type="text"] {
+        width: 50%;
+        padding: 10px;
+        border: 1px solid #333;
+        border-radius: 4px;
+        background-color: #121212;
+        color: white;
+    }
+
+    #header input[type="submit"] {
+        padding: 10px 15px;
+        margin-left: 10px;
+        border: none;
+        border-radius: 40px;
+        background-color: #bcb7b7;
+        color: white;
+        cursor: pointer;
+    }
+
+    #header input[type="submit"]:hover {
+        background-color: #8d8b8b;;
+    }
+    #header button[name="login"] {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        background-color: #3EA6FF;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* 네비게이터 스타일 */
+    #navigator {
+        padding: 20px;
+    }
+
+    #navigator ul {
+        list-style-type:none;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    #navigator ul li a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    #navigator ul li a:hover {
+        color: #FF0000;
+    }
+
+    /* 콘텐츠 스타일 */
+    #content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    #content > div {
+        flex: 1 1 calc(33.333% - 20px); 
+        background-color: #a1a1c6;
+        border-radius: 25px;
+        padding: 20px;
+        text-align: center;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        height: 180px;
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    #content > div:hover {
+        background-color: #333;
+        transform: scale(1.05);
+    }
