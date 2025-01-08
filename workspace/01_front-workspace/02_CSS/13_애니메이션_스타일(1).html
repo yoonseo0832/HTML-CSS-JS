@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS - 애니메이션 스타일(1)</title>
+    <style>
+        #translate-box{
+            width: 100px; height: 100px; 
+            border: 1px dotted red; 
+            /*  border-width: 1px; 
+                border-style:dotted; 
+                border-color:red;   */
+            background-color: violet;
+            /*애니메이션 속성 추가
+                animation : 이름(@keyframe로 정의한 이름) duration(실행시간) timimg-funtion(진행방식) delay(대기시간) 
+                            iterator-count(몇번) direction(방향) 
+                1. duration : 총 실행시간
+                2. timimg-funtion: 애니메이션 진행방식
+                3. delay: 애니메이션 대기 시간
+                4. iterator-count: 애니메이션 진행 횟수
+                5. direction: 애니메이션 진행 방향
+            */
+            animation: move 7s linear 2s infinite alternate;
+        }
+        @keyframes move{
+            /*애니메이션 시작 스타일 -> 0,0 위치에 배경색 변경*/
+            0%{background-color: blueviolet; transform: translate(0px, 0px);}
+            25%{background-color: palevioletred; transform: translate(150px, 0px);}
+            50%{background-color: darkred; transform: translate(150px, 150px);}
+            75%{background-color: greenyellow; transform: translate(0px, 150px)}
+            100%{background-color: blueviolet; transform: translate(0px, 0px)}
+        }
+    </style>
+</head>
+<body>
+    <h1>Translate</h1>
+
+    <div id="translate-box"></div>
+    <p>요소의 위치를 가로축(x) 또는 세로축(y) 방향으로 이동시키는 기능</p>
+    <pre>
+        애니메이션을 정의 : @keyframe 애니메이션 이름
+    </pre>
+</body>
+</html>

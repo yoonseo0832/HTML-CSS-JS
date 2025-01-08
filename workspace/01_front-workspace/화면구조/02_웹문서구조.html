@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 문서구조</title>
+    <style>
+        div {
+            border: 1px solid grey;
+            box-sizing: border-box;
+        }
+
+        /* 전체를 감싸는 영역 : wrap */
+        .wrap {
+            width: 1000px;
+            height: 800px;
+            min-height: 500px;
+            min-width: 800px;
+            /*고정값보다는 비율로 최소(min-)/최대(max-) 크기 설정*/
+            margin: auto;
+            /*margin: auto 양옆의 간격을 일정하게 해줘서 중앙에 배치*/
+        }
+
+        .wrap>div {
+            width: 100%;
+        }
+
+        /*#header, #content, #footer{} 위의 코드와 동일한 코드*/
+        #header,
+        #footer {
+            height: 20%;
+        }
+
+        #content {
+            height: 60%;
+        }
+
+        /*컨텐츠 영역 내의 요소 배치*/
+        #content>div {
+            height: 100%;
+            float: left;
+        }
+
+        /*float:left; 또는 부모 요소인 #content에 display:flex; 값 주기*/
+        #content1,
+        #content3 {
+            width: 200px;
+        }
+
+        #content2 {
+            width: calc(100% - 400px);
+        }
+
+        /*전체 100% 크기에서 400px(#content1, #content3) 고정값을 제외한 크기를 계산해 적용*/
+    </style>
+</head>
+
+<body>
+    <h1>웹 문서 구조</h1>
+    <div class="wrap">
+        <div id="header"></div>
+        <!--시맨틱 태그 사용시 header 태그-->
+        <div id="content">
+            <!--시맨틱 태그 사용시 main 태그 or section 태그-->
+            <div id="content1"></div>
+            <!--시맨틱 태그 사용시 article 태그 or div 태그-->
+            <div id="content2"></div>
+            <div id="content3"></div>
+        </div>
+        <div id="footer"></div>
+        <!--시맨틱 태그 사용시 footer 태그-->
+    </div>
+</body>
+
+</html>
