@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            display: flex;
+            border: 3px dotted yellow;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            float: left;
+            margin: 20px;
+            border-radius: 40%;
+            border: 3px solid plum;
+            animation: rotate 0.99s infinite;
+        }
+        @keyframes rotate{
+            0%{transform: rotate(0deg);}
+            50%{background-color: plum;}
+            100%{transform: rotate(360deg);}
+        }
+
+        .box{
+            transform: rotate(360deg);
+            transition-duration: 1s;
+            transition-delay: now;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+
+</html>
