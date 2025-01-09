@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터 입출력</title>
+</head>
+<body>
+    <h1>자바스크립트에서의 데이터 입출력</h1>
+    <!--
+        *window   : 자바스크립트의 내장 객체로 브라우저 창이 열릴 때마다
+                    하나씩 만든어지는 객체
+                    브라우저 창 안에 존재하는 모든 요소들의 최상위 객체
+                    생략 가능 window.alert() -> alert()
+
+        *document : 웹 문서마다 하나씩 만들어지는 객체
+                    HTML 문성에 대한 정보를 가지고 있음
+    -->
+    <h3>데이터 출력하는 구문- []생략 가능하다 의미</h3>
+    <ol>
+        <li>[window.]alert("메시지창(알림창)을 통해 데이터를 출력");</li>
+        <li>[window.]console.log("콘솔창에 출력");</li>
+        <li>document.write("화면에 출력");</li>
+        <li>선택된 요소.innerHTML | 선택된 요소.innerText = "요소의 출력 내용";</li>
+    </ol>
+    <script>
+        //alert("곧 점심시간입니다.");
+        console.log("출력되나요?")
+    </script>
+    <button onClick="documentWrite();">화면에 출력</button>
+    <script>
+        function documentWrite(){
+            let table = "<table border=1>"
+                        +"<tr>"
+                            +"<td>이윤서</td>"
+                            +"<td>22</td>"
+                        +"</tr>"
+                        +"</table>"
+            document.write(table);
+            document.write("<table border=1><tr><td>이윤서</td><td>김민지</td><td>김나경</td></tr></table> 태그가 포함된 내용")
+        }
+        //출력할 문구에 html 태그가 포함된 경우 해석하여 출력함
+        
+    </script>
+</body>
+</html>
