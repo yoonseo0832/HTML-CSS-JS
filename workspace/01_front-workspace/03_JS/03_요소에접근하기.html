@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소에 접근하기</title>
+    <style>
+        .area{
+            border:2px solid salmon;
+            width: 300px; height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML: 요소에 접근하기</h1>
+    <h2>해당 요소의 객체를 가져오는 것</h2>
+
+    <h3>1) 아이디 속성 사용해 요소 가져오기</h3>
+    <pre>
+        document.getElementsById("아이디명"); => 해당 요소 객체를 반환
+    </pre>
+    <button onClick="accessId();">아이디로 접근</button>
+    <div id="area1" class="area"></div>
+    <script>
+        function accessId(){
+            // "area1" 이라는 아이디 속성을 가진 요소 접근
+            let accessEl = document.getElementById("area1");
+            // let 변수명 = ; 변수에 접근한 요소 객체를 저장
+
+            // 선택된 요소의 속성값을 조회/변경하고자 할 때
+            // 선택된요소.속성명
+
+            // 선택된 요소의 내용 변경 - input 태그인 경우 : value 속성 
+            //                         - 그 외 태그들 : innerHTML 또는 innerText 속성
+            // accessEl.innerHTML = accessEl.innerHTML  + "<br>아이디로 접근 성공!"; // 2번 영역
+            // accessEl.innerHTML = "아이디로 접근 성공!";
+            accessEl.innerHTML += "<br>아이디로 접근 성공!";
+            accessEl.style.color = "red";
+            //accessEl.style.backgroundColor = "skyblue";
+
+            if(accessEl.style.backgroundColor == "skyblue"){
+                accessEl.style.backgroundColor = "purple";
+            }else{
+                accessEl.style.backgroundColor = "skyblue"
+            }
+            accessEl.style.width="100px";
+            accessEl.style.height="200px";
+        }
+    </script>
+    <h3>2) 태그명으로 요소 가지고 오기</h3>
+    <pre>
+        document.getElementsByTagName("태그명"); => 선택된 요소 객치들이 배열로 반환(한번에 전달/사용)
+    </pre>
+    <button onClick="accessTagName();">태그명으로 접근</button>
+
+    <ul>
+        <!--내용은 {}안에 작성-->
+        <li>ITEM1</li>
+        <li>ITEM2</li>
+        <li>ITEM3</li>
+        <li>ITEM4</li>
+        <li>ITEM5</li>
+    </ul>
+    <script>
+        function accessTagName(){
+            let list = document.getElementsByTagName('li');
+            // => [li,li,li,li...] 안에 데이터 담겨있음
+            console.log(list);
+            console.log(list.length);
+            //배열의 길이 -> 몇개의 데이터가 있는지 확인가능
+            console.log(list[3]);
+            //"ITEM1" <-- 첫번째 li 요소 내용
+            console.log(list[0].innerHTML);
+            
+        }
+    </script>
+</body>
+</html>
