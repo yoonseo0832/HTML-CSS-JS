@@ -1,56 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            padding-left: 450px;
+            padding-top: 350px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: gray;
+            width: 100px;
+            display: inline;
+            margin-left: 700px;
+            padding: 7px;
+        }
+    </style>
 </head>
 <body>
-    <form action="">
+    <a href="index.html">돌아기기 버튼</a>
+    <form action="" style="width:835px; height:100px;">
         <fieldset>
             <legend>취미</legend>
-            <input type="checkbox" name="hobby" id="all" value="all" onClick="allClick();">
+            <input type="checkbox" name="hobby" id="all" value="" onChange="allClick();">
             <label for="all">전체선택</label>
 
-            <input type="checkbox" name="hobby" id="synth" value="synth" onClick="">
+            <input type="checkbox" name="hobby" id="synth" value="종합" onChange="checkboxTrigger();">
             <label for="synth">종합</label>
 
-            <input type="checkbox" name="novel" id="novel" value="novel">
+            <input type="checkbox" name="hobby" id="novel" value="소설" onChange="checkboxTrigger();">
             <label for="novel">소설</label>
 
-            <input type="checkbox" name="hobby" id="prom" value="prom">
+            <input type="checkbox" name="hobby" id="prom" value="시/에세이" onChange="checkboxTrigger();">
             <label for="prom">시/에세이</label>
 
-            <input type="checkbox" name="hobby" id="indusr" value="indusr">
+            <input type="checkbox" name="hobby" id="indusr" value="경제/경영" onChange="checkboxTrigger();">
             <label for="indusr">경제/경영</label>
 
-            <input type="checkbox" name="hobby" id="selfdev" value="selfdev">
+            <input type="checkbox" name="hobby" id="selfdev" value="자기계발" onChange="checkboxTrigger();">
             <label for="selfdev">자기계발</label>
-        
-            <input type="checkbox" name="hobby" id="travel" value="travel">
+
+            <input type="checkbox" name="hobby" id="travel" value="여행" onChange="checkboxTrigger();">
             <label for="travel">여행</label>
-            
+
             <br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="hobby" id="kid" value="kid">
+            <input type="checkbox" name="hobby" id="kid" value="아동" onChange="checkboxTrigger();">
             <label for="kid">아동</label>
 
-            <input type="checkbox" name="hobby" id="cartoon" value="cartoon">
+            <input type="checkbox" name="hobby" id="cartoon" value="만화" onChange="checkboxTrigger();">
             <label for="cartoon">만화</label>
-            
-            <input type="checkbox" name="hobby" id="scien" value="scien">
+
+            <input type="checkbox" name="hobby" id="scien" value="과학" onChange="checkboxTrigger();">
             <label for="scien">과학</label>
 
-            <input type="checkbox" name="hobby" id="ddp" value="ddp">
+            <input type="checkbox" name="hobby" id="ddp" value="역사/문화" onChange="checkboxTrigger();">
             <label for="ddp">역사/문화</label>
 
-            <input type="checkbox" name="hobby" id="lang" value="lang">
+            <input type="checkbox" name="hobby" id="lang" value="외국어" onChange="checkboxTrigger();">
             <label for="lang">외국어</label>
 
-            <input type="checkbox" name="hobby" id="pc" value="pc">
+            <input type="checkbox" name="hobby" id="pc" value="컴퓨터" onChange="checkboxTrigger();">
             <label for="pc">컴퓨터</label>
         </fieldset>
+        <button type="button" onClick="categSelected();">카테고리 선택</button>
+        <div id="selectBox"
+            style="width:830px; height:100px; background-color: lightblue; border: 1px solid pink; color:darkviolet;">
+        </div>
     </form>
-    <script></script>
+    <script>
+        function allClick() {
+            let all = document.getElementById('all');
+            console.log(all.checked);
+
+            let hobbyList = document.getElementsByName('hobby');
+            for (let checkbox of hobbyList) {
+                checkbox.checked = all.checked;
+            }
+        }
+        function checkboxTrigger() {
+            let hobbyList = document.getElementsByName('hobby');
+            let allChecked = true;
+
+            for (let hobby of hobbyList) {
+                console.log(hobby.value);
+                if (hobby.value == "all") {
+                    continue;
+                } if (hobby.checked == false) {
+                    allChecked = false;
+                }
+            }
+            document.getElementById('all').checked = allChecked;
+        }
+        function categSelected() {
+            const hobbyList = document.getElementsByName('hobby');
+            const selectBox = [];
+
+            for (const hobby of hobbyList) {
+                if (hobby.checked && hobby.value !== "all") {
+                    selectBox.push(hobby.value);
+                }
+            }
+            const printBox = document.getElementById('selectBox');
+            printBox.innerText = selectBox.join(' ');
+        }
+    </script>
 </body>
+
 </html>
