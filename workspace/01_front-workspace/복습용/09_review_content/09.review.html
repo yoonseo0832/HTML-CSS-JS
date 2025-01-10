@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>배경색 변경하기</title>
+    <link href="09_review.css" rel="stylesheet">
+</head>
+<body>
+    <h1>배경색 변경하기</h1>
+
+    <div id="color-box" class="box">
+        <p id="text-p">이 영역의 배경색을 변경해보세요!</p>
+    </div>
+
+    <div id="select-area">
+        <label for="color-input">색상을 선택하세요:</label>
+
+        <input type="color" id="color-input" />
+        <button id="apply-button" onClick="applyButton();">적용</button>
+    </div>
+    <p id="message">현재 배경색은 #000 입니다</p>
+    <script src="09_review.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수와 자료형</title>
+</head>
+<body>
+    <h1>변수와 자료형</h1>
+    <h2>변수 선언 시 let, const, var라는 키워드를 이용해 선언 가능</h2>
+
+    <h4>* 변수 선언 방법</h4>
+    <ul>
+        <li>let   : 중복 선언 불가능, 재할당 가능</li>
+        <li>const : 중복 선언 불가능, 재할당 불가능</li>
+        <li>var   : 중복 선언 가능, 재할당 가능 </li>
+    </ul>
+    <button onClick="checkOne();">확인</button>
+    <script>
+        function checkOne(){
+            var userId = 'user01';
+            //console.log(userId);
+
+            var userId = 'user02';
+                                     //중복 선언은 가능하다(이전에 사용된 이름의 변수를 또 선언함)
+            //console.log(userId);
+            userId = 'user03'; //재할당(다시 값을 저장하다)
+            console.log(userId);
+
+            let userPwd = 'pass01'; // 변수 초기화 (선언+ 할당)
+            // console.log(userPwd);
+
+            // 중복 선언 불가능
+            // let userPwd = "pass02";
+            userPwd = 'pass02'; // 재할당
+            console.log(userPwd);
+
+            const userEmail = "사용자명";
+            console.log(userEmail);
+            
+            //const userEmail = "홍길동"; //중복 선언 불가능!
+
+            // userEmail = "김동준"; 재할당 불가능!
+            // 상수 : 한번 초기화된 값은 변경 불가능!
+
+            /*
+                var : 자유롭게 변수 선언/할당하여 사용할 수 있으나
+                      중복된 변수 난발 할 가능성과 의도치 않게 값이 변경될 수도 있음
+                      => 이러한 문제 보안하고자 let, const 타입 추가
+                * 권장 사항 : let, const 사용 *
+            */
+        }
+    </script>
+
+    <hr>
+
+    <h3>*자료형</h3>
+    <p>
+        변수 선언 시 자료형을 변도로 지정하지 않음
+        => ( 자료형의 개념이 없는 것은 아님 )<br>
+        => 인터프리터(한줄 씩 실행되는) 언어 특성상<br>
+        변수에 대입되는 값에 따라서 알아서 자료형 결정
+    </p>
+
+    <h4>자바스크립트의 자료형</h4>
+    <ul>
+        <li>숫자   : Number</li>
+        <li>문자열 : String</li>
+        <li>논리값 : Boolean</li>
+        <li>초기화되지 않은 것 : undefined</li>
+        <li>값이 없는 것: null</li>
+        <li>객체/배열/함수 : Object</li>
+    </ul>
+    <button onClick="checkTwo();">확인</button>
+    <script>
+        function checkTwo(){
+            // 숫자 타입
+            const num = 10;
+            const num2 = -30;
+            const num3 = 3.14159265;
+            const str = "셀레나";
+            const str2 = "selena gomez";
+            const str3 = "안녕하세요. 이윤서입니다. \n \t 반갑습니다.";
+            console.log(`벨로우!${str} 입니다.`);
+            console.log("안녕하세요." + str +"입니다."); //pre랑 비슷해보이는 ``
+            console.log(str3);
+            console.log(num);
+            console.log(typeof(num));
+            console.log(typeof(num3));
+            console.log(typeof(str));
+            console.log(str);
+            console.log(typeof(num) == "number");
+            console.log(typeof(str) == "number");
+            console.log(typeof(str2) == "number");
+            console.log(typeof(str2) == "string");
+
+            // 논리값 boolean
+            const isTrue =true;
+            const isFalse =false;
+            console.log(typeof isTrue);
+            console.log(typeof isFalse);
+
+            //undefined
+            let num4;
+            console.log(num4);
+            console.log(typeof num4);
+            // num4 = undefined; 직접 할당하는 것을 지양!
+
+            //null => 값이 없다, 명시적으로 없는 값으로 초기화하고자 할 때 사용
+            let num5 = null;
+            console.log(num5); // =>> null
+            console.log(typeof num5); // =>> "object"
+
+            // object
+            // * key:value 한 쌍으로 이루어짐
+            // {key:value, key:value, key:value...}
+            const newObject = {
+                red: "빨간색",
+                blue: "파랑색",
+                pink: "분홍색"
+            };
+            console.log(newObject);
+            console.log(typeof newObject);
+
+            console.log(newObject.blue);
+
+            newObject.red = "붉은 악마";
+            console.log(newObject);
+
+            //배열 타입 (Array)
+            const arr =[]; //빈 배열 생성
+            arr.push("KH정보교육원");
+            arr.push("집으로 가는길");
+            console.log(arr);
+        }
+
+        // \n :new line | \t :tab  \\ :\
+    </script>
+    <hr>
+    <h3>*변수 명명 규칙</h3>
+    <ol>
+        <li>일반적으로 소/대문자 사용, 문자/숫자 모두 사용 가능</li>
+        <li>특수 문자는 언더바(_)와 달러기호($)만 사용 가능</li>
+        <li>숫자로 시작할 수 없음 </li>
+        <li>키워드(예약어)를 변수명으로 사용할 수 없음
+            EX) let, const, var... 
+        </li>
+    </ol>
+    <h4>표기법 (naming type)</h4>
+    <ol>
+        <li>camelCase: 낙타 표기법, 자주 사용되는 표기법
+            소문자로 시작하고 다른 단어가 시작할때마다 대문자로 구분하는 방법
+            ec) user id ==> userId
+        </li>
+        <li>snake_case: 파이썬에서 주로 사용 표기법
+            단어마다 _(언더바)로 구분
+            ex) user id ==> user_id
+        </li>
+        <li>PascalCase : c# 또는 ms 계열의 언어에서 사용되는 표긱법
+            모든 단어의 시작을 대문자로 구분한다
+            ex) user id ==> UserId
+        </li>
+    </ol>
+</body>
+</html>

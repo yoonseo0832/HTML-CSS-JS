@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="slider-box.css" rel="stylesheet">
+</head>
+<body>
+     <!-- Image Slider -->
+     <div class="slider-box"> <!-- A -->
+        <span class="btn-prev">prev</span> <!-- Btn prev -->
+
+        <div class="slider"> <!-- B -->
+            <div class="files"> <!-- C -->
+                <div th:each="file : *{attachments}" class="file"> <!-- D -->
+                    <img class="thumbnail" th:src="@{/upload/{path}/{name}(path=${file.path}, name=${file.id + '_' + file.name})}">
+                </div>
+            </div>
+        </div>
+
+        <span class="btn-next">next</span> <!-- Btn next -->
+
+        <ul class="pagination">
+
+        </ul>
+    </div>
+
+    <!-- Image Slider -->
+     <script src="slider-box.js"></script>
+</body>
+</html>
