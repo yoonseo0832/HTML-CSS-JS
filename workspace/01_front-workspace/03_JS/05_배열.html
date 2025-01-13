@@ -149,6 +149,130 @@
     </script>
 
     <hr>
-    <h3>4) </h3>
+    <h3>4) 배열명.sort()</h3>
+    <p>
+        배열 내의 값을 오름차순으로 정렬시키는 함수
+    </p>
+    <button onClick="sortTest();">정렬 확인</button>
+    <div class="area" id="area4"></div>
+    <script>
+        function sortTest(){
+            let arr = ["이윤서", "노승재", "정혜영", "임성준", "양환", "박민준"];
+            const area4 = document.querySelector("#area4");
+            area4.innerHTML = "before sort: " + arr + "<br>";
+            area4.innerHTML += "after sort: "+arr.sort() + "<br>";
+            area4.innerHTML += "orignal array: "+arr + "<br>";
+            // => sort() 사용 시 원본 배열에 열향을 끼친다.
+
+            //내림차순정렬하는 방법
+            area4.innerHTML += "내림차순: "+arr.reverse()
+            //sort 먼저 하고 역순으로 하면 내림차순이 된다
+            //area4.innerHTML += "after sort: "+arr.sort().reverse() + "<br>";
+        }
+    </script>
+    <hr>
+    <h3>배열에 값을 추가/제거하는 방법 -1</h3>
+    <h4>* 추가 : 배열명.push(추가할 값)</h4>
+    <p>
+        배열의 맨 뒤에 값을 추가하고, 배열의 크기를 반환(추가후 크기)
+    </p>
+    <h4>* 제거 : 배열명.pop()</h4>
+    <p>
+        배열의 맨 뒤에 값을 제거하고, 그 값을 반환
+    </p>
+    
+    <button onClick="inoutTest();">확인</button>
+    <div class="area" id="area5"></div>
+    <script>
+        function inoutTest(){
+            let arr = ["노원구", "양천구", "마포구", "관악구"];
+
+            const area5 = document.getElementById("area5");
+            area5.innerHTML = "arr : "+ arr  +"<br>";
+            area5.innerHTML += "pop() : " + arr.pop() + "<br>";
+            area5.innerHTML += "push() : " + arr.push("행복동") + "<br>";
+            area5.innerHTML += "now arr : "+ arr  +"<br>";
+            // push() / pop() 함수도 원본 배열에 영향을 끼친다!
+        }
+    </script>
+
+    <br>
+    <h3>6) 배열에 값을 추가/제거 -2</h3>
+    <h4>* 추가 : 배열명.unshfit(추가할 값)</h4>
+    <p>
+        배열의 맨 앞에 값을 추가, 배열의 크기를 반환
+    </p>
+    <h4>* 제거 : 배열명.shfit()</h4>
+    <p>
+        배열의 맨 앞에 값을 제거, 그 값을 반환함
+    </p>
+    <button onClick="inoutTest2();">확인</button>
+    <div class="area" id="area6"></div>
+    <script>
+        function inoutTest2(){
+            let arr = ["김태희", "송중기", "김우빈", "신민아", "정우성"];
+            const area6 = document.querySelector("#area6");
+            area6.innerHTML = "배우들: "+ arr+ "<br>";
+            area6.innerHTML += "제거: "+ arr.shift()+ "<br>";
+            arr.unshift("김태리");
+            area6.innerHTML += "최종: "+ arr+ "<br>";
+            area6.innerHTML += "pop() : " + arr.pop() + "<br>";
+            area6.innerHTML += "진짜 최종: "+ arr  +"<br>";
+            // => unshift(), shift() 사용 시 원본 배열에 영향 줌!
+        }
+    </script>
+    <hr>
+    <h3>7)  배열에서  추출하기</h3>
+    <h4>* 배열명.slice(시작인덱스, 끝인덱스)</h4>
+    <p>
+        배열에서 시작인덱스 위치부터<b> 끝인덱스 전까지 배열의 값들</b>을 추출
+    </p>
+    <h4>* 배열명.splice(시작인덱스, 제거할 개수[, 추가할 값])</h4> <!--[]안은 생략 가능-->
+    <p>
+        배열에서 시작인덱스 위치부터 개수만큼 추출하여 제거<br>
+        + 데이터를 추가할 수 있도록 해주는 함수
+    </p>
+    <button onClick="sliceTest();">추출하기</button>
+    <div class="area" id="area7"></div>
+    <script>
+        function sliceTest(){
+            let arr = ["html", "css", "js", "java", "python", "sql"];
+
+            const area7 = document.getElementById("area7");
+            area7.innerHTML = "arr: " + arr+ "<br>";
+
+            //* slice
+            let arr2 = arr.slice(3,5); //3, 4번 인덱스 위치를 추출, 끝인덱스 전까지 
+            area7.innerHTML += "추출한 값: "+arr2 + "<br>";
+            area7.innerHTML += "arr: "+arr + "<br>";
+            // slice 원본 배열에 영향을 주지 않음
+            let arr3 = arr.splice(0, 3, "spring");
+            area7.innerHTML += "splice(): "+arr3 + "<br>";
+            area7.innerHTML += "arr: "+arr + "<br>";
+            //splice 원본 배열에 영향을 끼친다!
+            // 데이터를 제거하고, 추가되는 값이 있으면 그 위치에 추가된다
+        }
+    </script>
+    <h3>8)  배열을 문자열로 변환하기</h3>
+    <h4>* 배열명.toString()</h4>
+    <h4>* 배열명.join([구분자])</h4>
+    <p>
+        배열의 각 인덱스에 담긴 값을 하나의 문자열로 반환해주는 함수
+    </p>
+    <button onClick="toStringTest();">문자열로 변환하기</button>
+    <div class="area" id="area8"></div>
+    <script>
+        function toStringTest(){
+            let arr = ["저는", "오늘", "점심에", "샐러드를", "먹었어요."];
+
+            const area8 = document.querySelector("#area8");
+            area8.innerHTML = "arr: " + arr+ "<br>";
+            area8.innerHTML += "arr.toString(): "+arr.toString() + "<br>";
+
+            //area8.innerHTML += "arr.join(): "+arr.join([ ]) +"<br>";
+            //기본적으로 join() 콤마(,)를 사용하여 문자열로 반환
+            area8.innerHTML += "arr.join([ ]): "+arr.join([' ']) +"<br>"; //공백도 사용 가능
+        }
+    </script>
 </body>
 </html>

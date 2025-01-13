@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>함수</title>
+    <style>
+        .area {
+            width: 500px;
+            height: 200px;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>함수(function)</h1>
+    <h3>* 선언적 함수</h3>
+    <pre>
+        function 함수명([매개변수_생략가능, 여러개 가능]){
+            //함수 호출 시 실행할 코드
+            [return 결과값;]_생략가능
+        }
+    </pre>
+    <!--test1(); 함수 호출(실행과 같음)-->
+    <button onClick="test1();">클릭 금지!</button>
+    <div class="area" id="area1"></div>
+    <script>
+        function test1() {
+            document.querySelector("#area1").innerHTML
+                += "test() 함수 호출<br>";
+        }
+    </script>
+    <hr>
+    <h3>* 익명 함수</h3>
+    <pre>
+        변수|속성 = 함수 대입 function([매게변수,매개변수,...]){ <!--이름없이 함수 대입-->
+            //함수 호출 시 실행할 코드
+            [return 결과값;]
+        }
+        => 특정 변수나 속성에 대입되는 함수 
+            //주로 이벤트 핸들러 작성 시 사용
+    </pre>
+    <button id="btn1">실행</button>
+    <button id="btn2">스타일 변경</button>
+    <div class="area" id="area2"></div>
+    <script>
+        // id 속성 btn1 요소 접근
+        const btn1 = document.getElementById("btn1");
+        // id 속성 btn2 요소 접근
+        const btn2 = document.querySelector("#btn2");
+
+        //이벤트 속성(onclick)에 익명함수를 대입  // 이벤트 핸들러의 경우 소문자 onclick 처럼
+        btn1.onclick = function () {
+            const area2 = document.getElementById('area2').innerHTML += "이벤트 핸들러 실행됨!<br>";
+        }
+
+        btn2.onclick = function () {
+            const area2 = document.getElementById("area2");
+
+            //area2.style.backgroundColor = "red";
+            if (area2.style.backgroundColor == "yellow") {
+                area2.style.backgroundColor = "lightblue";
+            } else if (area2.style.backgroundColor == "lightblue") {
+                area2.style.backgroundColor = "pink";
+            } else {
+                area2.style.backgroundColor = "yellow";
+            }
+        }
+        // 버튼이 클릭된 것처럼 동작시키고자할 때 
+        btn2.click();
+        btn2.click();
+        btn2.click();
+    </script>
+
+    <hr>
+    <h3>* 함수의 매개 변수</h3>
+    <button onclick="test2('안녕하세요!')">실행</button>
+    <button onclick="test2(20)">실행</button>
+    <button onclick="test2(prompt('아무거나 입력하세요:'))">실행</button>
+    <button onclick="test2([1,2,3,4,5])">실행</button>
+    <button onclick="test2(2025)">실행</button>
+    <button onclick="test2('지금은', '마지막시간')">실행</button>
+    <button onclick="test2(false)">실행</button>
+    <button onclick="test2(true)">실행</button>
+    <div class="area" id="area3"></div>
+    <script>
+        // value라는 이름의 매개변수 있음
+        function test2(value) {
+            document.getElementById("area3").innerHTML
+                += value + "<br>";
+        }
+        // 마지막은 출력이 안된다, 지금은 만 출력
+        //매개변수 함수가 호출될때 전달받은
+    </script>
+    <h4>* 매개변수 관련 arguments 배열</h4>
+    <p>
+        함수 호출 시 전달되는 값은 내부적으로 arguments 배열에 담겨진다
+        * arguments : 모든 함수마다 내부적으로 하나씩 존재하는 배열 객체(가변적으로 사용 가능)
+    </p>
+    <button onclick="test3(1,3,5,30,55,300,500);">실행</button>
+    <div class="area" id="area4"></div>
+    <script>
+        function test3() {
+            console.log(arguments);
+            console.log(arguments[2]);
+            let result = 0; //전달된 값들의 총 합을 저장
+            for (let num of arguments) {
+                console.log("num : " +num);
+                console.log("result : "+result);
+                result += num; //total = total + num;과 동일한 코드
+                console.log("-------------------")
+            }
+            document.getElementById("area4").innerHTML
+                = "총합: " + result;
+           
+        }
+    </script>
+    <br>
+    <h4>* 매개변수에 this 전달하기</h4>
+    <p>
+        this : 현재 이벤트가 발생한 요소 객체
+    </p>
+    <button onclick="test4(this)">버튼1</button>
+    <button onclick="test4(this)">버튼2</button>
+    <input type="button" value="버튼3" onclick="test4(this)"></input>
+    <script>
+        function test4(target){
+            console.log(target);
+            // id 속성으로 접근한 요소 객체와 같은 정보를 전달받을 수 있음
+            //버튼 내용을 변경: 클릭됨!
+            target.innerHTML = "클릭됨!";
+            target.value = "클릭됨@";
+            target.style.backgroundColor ="pink";
+        }
+    </script>
+</body>
+
+</html>
