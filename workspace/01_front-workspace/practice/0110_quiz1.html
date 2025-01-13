@@ -1,56 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+
+        body {
+            padding-left: 450px;
+            padding-top: 350px;
+        }
+        #hobby-table { min-width: 700px; }
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: gray;
+            width: 100px;
+            display: inline;
+            margin-left: 700px;
+            padding: 7px;
+        }
+    </style>
 </head>
 <body>
-    <form action="">
+    <!--<table id="hobby-table"></table>로 해놓으면 정렬이 깔끔하게 됨-->
+    <a href="index.html">돌아기기 버튼</a>
+    <form action="" style="width:835px; height:100px;">
         <fieldset>
-            <legend>취미</legend>
-            <input type="checkbox" name="hobby" id="all" value="all" onClick="allClick();">
-            <label for="all">전체선택</label>
+            <table id="hobby-table">
+                <legend>취미</legend>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="hobby" 
+                                id="all" value="전체선택" 
+                                onChange="allClick();">
+                        <label for="all">전체선택</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="synth" value="종합" onChange="checkboxTrigger();">
+                        <label for="synth">종합</label>
 
-            <input type="checkbox" name="hobby" id="synth" value="synth" onClick="">
-            <label for="synth">종합</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="novel" value="소설" onChange="checkboxTrigger();">
+                        <label for="novel">소설</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="prom" value="시/에세이" onChange="checkboxTrigger();">
+                        <label for="prom">시/에세이</label>
 
-            <input type="checkbox" name="novel" id="novel" value="novel">
-            <label for="novel">소설</label>
-
-            <input type="checkbox" name="hobby" id="prom" value="prom">
-            <label for="prom">시/에세이</label>
-
-            <input type="checkbox" name="hobby" id="indusr" value="indusr">
-            <label for="indusr">경제/경영</label>
-
-            <input type="checkbox" name="hobby" id="selfdev" value="selfdev">
-            <label for="selfdev">자기계발</label>
-        
-            <input type="checkbox" name="hobby" id="travel" value="travel">
-            <label for="travel">여행</label>
-            
-            <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="checkbox" name="hobby" id="kid" value="kid">
-            <label for="kid">아동</label>
-
-            <input type="checkbox" name="hobby" id="cartoon" value="cartoon">
-            <label for="cartoon">만화</label>
-            
-            <input type="checkbox" name="hobby" id="scien" value="scien">
-            <label for="scien">과학</label>
-
-            <input type="checkbox" name="hobby" id="ddp" value="ddp">
-            <label for="ddp">역사/문화</label>
-
-            <input type="checkbox" name="hobby" id="lang" value="lang">
-            <label for="lang">외국어</label>
-
-            <input type="checkbox" name="hobby" id="pc" value="pc">
-            <label for="pc">컴퓨터</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="indusr" value="경제/경영" onChange="checkboxTrigger();">
+                        <label for="indusr">경제/경영</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="selfdev" value="자기계발" onChange="checkboxTrigger();">
+                        <label for="selfdev">자기계발</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="kid" value="아동" onChange="checkboxTrigger();">
+                        <label for="kid">아동</label>
+                    </td>
+                    <td colspan="3"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="travel" value="여행" onChange="checkboxTrigger();">
+                        <label for="travel">여행</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="scien" value="과학" onChange="checkboxTrigger();">
+                        <label for="scien">과학</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="ddp" value="역사/문화" onChange="checkboxTrigger();">
+                        <label for="ddp">역사/문화</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="lang" value="외국어" onChange="checkboxTrigger();">
+                        <label for="lang">외국어</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="pc" value="컴퓨터" onChange="checkboxTrigger();">
+                        <label for="pc">컴퓨터</label>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="hobby" id="cartoon" value="만화" onChange="checkboxTrigger();">
+                        <label for="cartoon">만화</label>
+                    </td>
+                    <td colspan="3"></td>
+                </tr>
+            </table>
         </fieldset>
+
+        <button type="button" onClick="categSelected();">카테고리 선택</button>
+        <div id="selectBox"
+            style="width:830px; height:100px; border: 2px solid red; color:darkviolet;">
+        </div>
     </form>
-    <script></script>
+    <script>
+    /*
+        전체 선택 체크박스의 상태가 변경될때 => 나머지 체크박스의 상태 변경
+        *전체 선택 [] 상태가 체크된 상태 => 나머지
+    */
+        function allClick() {
+            const allChk = document.getElementById('all');
+            /*console.log(allChk.checked);*/ // allChk.checked => 해당 요소 체크 상태(true/fasle)
+            const hobbyList = document.getElementsByName('hobby');//네임 속성을 사용
+            for (let checkbox of hobbyList) {
+                checkbox.checked = allChk.checked;
+                // name속성이 hobby인 요소의(checkbox) 체크 상태(checked)를 
+                // 전체 선택 요소(allChk)의 체크 상태(checked)와 동일하게 변경
+            }
+        }/*
+            체크 상태가 변경될때 전체선택 체크박스를 제외한 모든 체크박스들이 체크된 경우  
+                    =>체크박스들이 체크 상태로 변경
+            하나라도 체크 해제된 경우 
+                    => 전체 선택 체크박스를 체크 해제 상태로 변경
+        */
+        /*function checkboxTrigger() {
+            const hobbyList = document.getElementsByName('hobby');
+            let allChecked = true;
+
+            for (let hobby of hobbyList) {
+                console.log(hobby.value);
+                if (hobby.value == "all") {
+                    continue;
+                } if (hobby.checked == false) {
+                    allChecked = false;
+                }
+            }
+            document.getElementById('all').checked = allChecked;
+        }*/
+        function checkboxTrigger() {
+            const hobbyList = document.getElementsByName('hobby');
+            let isChecked = true; // 전체 선택 체크박스의 상태를 변경할 값
+            
+            for(let checkbox of hobbyList){
+                if(checkbox.value == "전체선택"){
+                    continue;
+                }
+                if(checkbox.checked == false){
+                    //체크 해제된 체크박스가 있는 경우
+                    //전체 선택 체크박스의 값을 변경할 변수 
+                    isChecked = false;
+                    break; // 반복문을 멈추는 역할을 함
+                }
+            }
+            document.getElementById('all').checked = isChecked;
+        }
+        function categSelected() {
+            const hobbyList = document.getElementsByName('hobby');
+            let selectBox = ""; //비어있는 값이자 체크된 항목의 값(value)을 저장할 변수
+
+            for (let checkbox of hobbyList) {
+                /*if (hobby.checked && hobby.value !== "all") {
+                    selectBox.push(hobby.value);
+                }*/
+                if(checkbox.value == "전체선택"){
+                    continue;
+                }
+                if(checkbox.checked){ //ckeckBox.checked == true
+                    selectBox = selectBox + " " + checkbox.value; // 계속 덮어쓰게 됨
+                }
+            }
+            //결과를 화면에 출력 => selectBox라는 변수에 차곡차곡 저장해둠!
+            document.getElementById('selectBox').innerText = selectBox;
+        }
+    </script>
 </body>
+
 </html>
