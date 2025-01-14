@@ -107,15 +107,15 @@
             // 속성값을 가지고 오고 싶다면
 
             //for (let key in human) {
-                //area2.innerHTML += key +": " + human.key + "<br>";
-                // 객체에서 key라는 속성을 찾는 것이다
-                //area2.innerHTML += key + ": " + human[key] + "<br>";
+            //area2.innerHTML += key +": " + human.key + "<br>";
+            // 객체에서 key라는 속성을 찾는 것이다
+            //area2.innerHTML += key + ": " + human[key] + "<br>";
             //}
             //key 라는 변수 human 객체가 가지고 있는 속성명들이 저장되는 변수
             // key = "name"; -> "age" -> 'etc'
             //human[key] => human['name'] , human['age'], human['etc'] 
         }
-       // console.log(key);
+        // console.log(key);
         //console.log(typeod(key));
     </script>
     <hr>
@@ -134,16 +134,16 @@
             const dog = {
                 name: '찬이',
                 kind: "웰시코기",
-                eat: function(food) {
+                eat: function (food) {
                     area3.innerHTML += "<em>etc메소드호출</em> <br>";
                     //찬이가 간식을 먹었습니다
                     //area3.innerHTML += "찬이가 간식을 먹었습니다."
-                    area3.innerHTML += this.name + "가"+food+ "간식을 먹었다." +"<br>";
+                    area3.innerHTML += this.name + "가" + food + "간식을 먹었다." + "<br>";
                 }
             };
             //-----------------실행---------------------
             //-----------------------------------------
-            area3.innerHTML +="이름: "+ dog.name + "<br>";
+            area3.innerHTML += "이름: " + dog.name + "<br>";
             dog.eat('고구마');
             dog.eat('오리목뼈');
             //-----------------------------------------
@@ -160,7 +160,7 @@
     </p>
     <p>
         *with : 객체의 속성 접근 시 객체 별로 속성을 제시하는 것을 생략할 수 있게<br>
-        해주는 키워드(코드를 간결하게 도와줌!) 
+        해주는 키워드(코드를 간결하게 도와줌!)
     </p>
     <label for="name">이름:</label>
     <input type="text" id="name"><br>
@@ -173,42 +173,42 @@
     <button onclick="test4();">실행</button>
     <div class="area big" id="area4"></div>
     <script>
-        function test4(){
+        function test4() {
             const student = {
                 name: document.getElementById("name").value,
                 kor: Number(document.getElementById("kor").value),
                 math: Number(document.getElementById("math").value),
                 eng: Number(document.getElementById("eng").value),
-                toString: function(){
+                toString: function () {
                     //return "테스트!!"
                     return `${this.name}: ${this.kor}, ${this.math}, ${this.eng}`;
                 },
-                getSum: function(){
-                    return this.kor+this.math+this.eng;
+                getSum: function () {
+                    return this.kor + this.math + this.eng;
                     //return `${parseInt.sum} = ${parseInt.kor}+${parseInt.math}+${parseInt.eng}`;
                 },
-                getAvg:function(){
-                    return this.getSum()/3;
-                } 
+                getAvg: function () {
+                    return this.getSum() / 3;
+                }
             };
             // student.name = document.getElementById("name").value; 위의 코드와 동일 line:178
             const area4 = document.getElementById('area4');
-            area4.innerHTML = "학생 정보: " +student.toString() + "<br>";
-            area4.innerHTML += "이름: "+ student.name + "<br>";
-            area4.innerHTML += "국어: "+ student.kor + "<br>";
-            area4.innerHTML += "수학: "+ student.math + "<br>";
-            area4.innerHTML += "영어: "+ student.eng + "<br>";
+            area4.innerHTML = "학생 정보: " + student.toString() + "<br>";
+            area4.innerHTML += "이름: " + student.name + "<br>";
+            area4.innerHTML += "국어: " + student.kor + "<br>";
+            area4.innerHTML += "수학: " + student.math + "<br>";
+            area4.innerHTML += "영어: " + student.eng + "<br>";
             //* in ==> '속성명' in 객체명 -> true/false
-            area4.innerHTML += "name 속성이 있는가? "+  ('name'in student) +"<br>";
-            area4.innerHTML += "game 속성이 있는가? "+  ('game'in student) +"<br>";
+            area4.innerHTML += "name 속성이 있는가? " + ('name' in student) + "<br>";
+            area4.innerHTML += "game 속성이 있는가? " + ('game' in student) + "<br>";
             //* with ==> with(객체명){속성명}
-            with(student){
-                area4.innerHTML += "이름: "+ name + "<br>";
-                area4.innerHTML += "국어 점수: "+ kor + "<br>";
-                area4.innerHTML += "수학 점수: "+ math + "<br>";
-                area4.innerHTML += "영어 점수: "+ eng + "<br>";
-                area4.innerHTML += "총합: "+getSum() + "<br>";
-                area4.innerHTML += "평균: "+getAvg() +"<br>";
+            with (student) {
+                area4.innerHTML += "이름: " + name + "<br>";
+                area4.innerHTML += "국어 점수: " + kor + "<br>";
+                area4.innerHTML += "수학 점수: " + math + "<br>";
+                area4.innerHTML += "영어 점수: " + eng + "<br>";
+                area4.innerHTML += "총합: " + getSum() + "<br>";
+                area4.innerHTML += "평균: " + getAvg() + "<br>";
             }
         }
         //배열 이름을 호출하면 toString으로 표현
@@ -223,27 +223,27 @@
     <button onclick="test5();">실행</button>
     <div class="area small" id="area5"></div>
     <script>
-        function test5(){
+        function test5() {
             const area5 = document.getElementById("area5");
             //비어있는 객체[]는 배열, {} 객체
             const student = {
-                
+
             };
             //속성 추가하기
-            student.name ="이윤서";
-            area5.innerHTML = "이름: "+ student.name + "<br>";
+            student.name = "이윤서";
+            area5.innerHTML = "이름: " + student.name + "<br>";
 
-            student.hobby=["온라인 게임", "산책하기"]; // 배열 형태도
-            area5.innerHTML += "취미: "+ student.hobby +"<br>";
+            student.hobby = ["온라인 게임", "산책하기"]; // 배열 형태도
+            area5.innerHTML += "취미: " + student.hobby + "<br>";
 
-            student.toString = function(){
-                return "name: " +this.name+ ", hobby: "+this.hobby;
+            student.toString = function () {
+                return "name: " + this.name + ", hobby: " + this.hobby;
             }
-            area5.innerHTML += "student => "+ student/*.toString() 생략*/ +"<br>";
+            area5.innerHTML += "student => " + student/*.toString() 생략*/ + "<br>";
             console.log(student);
 
             //속성 제거
-            delete(student.name); // 속성 자체를 삭제
+            delete (student.name); // 속성 자체를 삭제
             console.log(student);
 
             student.hubby = null; // 속성을 유지하고 값만 제거
@@ -258,11 +258,11 @@
     <button onclick="test6();">실행</button>
     <div class="area small" id="area6"></div>
     <script>
-        function test6(){
-            const student0 = {name:"구세연", age:27, gender:"여"};
-            const student1 = {name:"임성준", age:26, gender:"남"};
-            const student2 = {name:"김일현", age:25, gender:"남"};
-            const student3 = {name:"유성재", age:26, gender:"남"};
+        function test6() {
+            const student0 = { name: "구세연", age: 27, gender: "여" };
+            const student1 = { name: "임성준", age: 26, gender: "남" };
+            const student2 = { name: "김일현", age: 25, gender: "남" };
+            const student3 = { name: "유성재", age: 26, gender: "남" };
 
             const stdArr = []; //[{...}] 
             stdArr.push(student0);//[{...}] 
@@ -270,24 +270,90 @@
             stdArr.push(student2);//[{...}, {...}, {...}] 
             stdArr.push(student3);//[{...}, {...}, {...}, {...}] 
             console.log(student2);
-            console.log(stdArr[2]);
+            console.log(stdArr);
             console.log(stdArr[2].name); // 위치값으로 먼저 객체를 찾고, 해당 객체의 속성으로 접근
 
             //학생 이름을 area6 요소에 출력
-            for(const item of stdArr){ 
+            for (const item of stdArr) {
                 //item => 변수 다르게 지정해도 됨, i ==item 같은 의미
-                document.getElementById('area6').innerHTML +=  item.name + "<br>";
-                 //배열의 아이템(반복문이 실행되면서 처음위치부터 마지막 위치까지 접근)
+                document.getElementById('area6').innerHTML += item.name + "<br>";
+                //배열의 아이템(반복문이 실행되면서 처음위치부터 마지막 위치까지 접근)
             }
             // 기본 조건문
-            for(let i=stdArr.length-1; i>=0; i--){ //반대로 정렬 가능
+            for (let i = stdArr.length - 1; i >= 0; i--) { //반대로 정렬 가능
                 document.getElementById('area6').innerHTML += stdArr[i].name + "<br>";
 
                 stdArr[i] // 배열에서 i번째 인덱스 위치 데이터
             }
-
+            for (let i = 0; i < stdArr.length; i++) {
+                stdArr[i].point = 0; // 반복문으로 속성 추가
+            }
+            console.log(stdArr);
+            //반복문을 사용하여 toString 메소드 추가 "name: xx, age:xx, gender:xx" 형식으로 반환
+            for (let i = 0; i < stdArr.length; i++) {
+                //반복문이 0~배열길이만큼 반복되도록 (줄이기)
+                stdArr[i].toString = function () {
+                    return `name: ${this.name}, age:${this.age}, gender:${this.gender}, point:${this.point}`;
+                }
+                /*stdArr[i].name ="xx", stdArr[i].age ="xx", stdArr[i].gender ="xx";
+                console.log(stdArr);*/
+                /*stdArr[0].toString = function () {
+                    return `name: ${this.name}, age:${this.age}, gender:${this.gender}, point:${this.point}`;
+                }
+                stdArr[1].toString = function () {
+                    return `name: ${this.name}, age:${this.age}, gender:${this.gender}, point:${this.point}`;
+                }
+                stdArr[2].toString = function () {
+                    return `name: ${this.name}, age:${this.age}, gender:${this.gender}, point:${this.point}`;
+                }
+                stdArr[3].toString = function () {
+                    return `name: ${this.name}, age:${this.age}, gender:${this.gender}, point:${this.point}`;
+                }*/
+            }
+            console.log(stdArr);
             
+            for(let item of stdArr){
+                document.getElementById("area6").innerHTML += item/*.toString() 생략*/ +"<br>";
+            }
         }
+    </script>
+
+    <hr>
+
+    <h3>생성자 함수</h3>
+    <p>
+        new 키워드를 통해 객체를 생성할 수 있는 함수<br>
+        (함수명 첫글자를 대문자로 작성_약속같은 것)
+    </p>
+    <button onclick="test7();">실행</button>
+    <div class="area small" id="area7"></div>
+    <script>
+        //생성자 함수: 사람의 정보를 담는 객체 , 전달받을 것을 함수에 
+        function Person(name, age, gender, point){
+            //this는 생성될 객체를 가르킴!
+            this.name = name;//현재 객체의 name 속성(this.name)
+                            // 전달받은 데이터(name) 둘은 다른것
+            this.age = age;
+            this.gender = gender;
+            this.point = point;
+
+            //toString 메소드 추가   -> 객체의 함수 형태의 속성 = 대입을 해서 function(){} 하면 메소드가 됨
+            this.toString = function(){
+                return `${this.name} : ${this.age} : ${this.gender} : ${this.point}`;
+            }
+        }   
+        function test7(){
+           const p1 = new Person("김우빈", 30,"남", 100); //함수라서 값을 전달하지 않아도 작동을 한다
+           console.log(p1); // 틀을 만들어놔서 다른 객체를 추가해도 같은 Person(생성자 함수) 
+
+           const p2 = new Person("모모", 28,"여", 99); //함수라서 값을 전달하지 않아도 작동을 한다
+           console.log(p2);
+
+            const area7 = document.getElementById("area7");
+            area7.innerHTML = "p1: "+ p1.toString() + "<br>";
+            area7.innerHTML += "p2: "+ p2.toString() + "<br>";
+        }
+        
     </script>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
