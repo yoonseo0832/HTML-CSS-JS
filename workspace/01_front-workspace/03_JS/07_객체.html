@@ -311,9 +311,9 @@
                 }*/
             }
             console.log(stdArr);
-            
-            for(let item of stdArr){
-                document.getElementById("area6").innerHTML += item/*.toString() 생략*/ +"<br>";
+
+            for (let item of stdArr) {
+                document.getElementById("area6").innerHTML += item/*.toString() 생략*/ + "<br>";
             }
         }
     </script>
@@ -329,32 +329,128 @@
     <div class="area small" id="area7"></div>
     <script>
         //생성자 함수: 사람의 정보를 담는 객체 , 전달받을 것을 함수에 
-        function Person(name, age, gender, point){
+        function Person(name, age, gender, point) {
             //this는 생성될 객체를 가르킴!
             this.name = name;//현재 객체의 name 속성(this.name)
-                            // 전달받은 데이터(name) 둘은 다른것
+            // 전달받은 데이터(name) 둘은 다른것
             this.age = age;
             this.gender = gender;
             this.point = point;
 
             //toString 메소드 추가   -> 객체의 함수 형태의 속성 = 대입을 해서 function(){} 하면 메소드가 됨
-            this.toString = function(){
+            this.toString = function () {
                 return `${this.name} : ${this.age} : ${this.gender} : ${this.point}`;
             }
-        }   
-        function test7(){
-           const p1 = new Person("김우빈", 30,"남", 100); //함수라서 값을 전달하지 않아도 작동을 한다
-           console.log(p1); // 틀을 만들어놔서 다른 객체를 추가해도 같은 Person(생성자 함수) 
+        }
+        function test7() {
+            const p1 = new Person("김우빈", 30, "남", 100); //함수라서 값을 전달하지 않아도 작동을 한다
+            console.log(p1); // 틀을 만들어놔서 다른 객체를 추가해도 같은 Person(생성자 함수) 
 
-           const p2 = new Person("모모", 28,"여", 99); //함수라서 값을 전달하지 않아도 작동을 한다
-           console.log(p2);
+            const p2 = new Person("모모", 28, "여", 99); //함수라서 값을 전달하지 않아도 작동을 한다
+            console.log(p2);
 
             const area7 = document.getElementById("area7");
-            area7.innerHTML = "p1: "+ p1.toString() + "<br>";
-            area7.innerHTML += "p2: "+ p2.toString() + "<br>";
+            area7.innerHTML = "p1: " + p1.toString() + "<br>";
+            area7.innerHTML += "p2: " + p2.toString() + "<br>";
         }
-        
+
     </script>
+    <hr>
+
+    <h3>Date 내장 객체</h3>
+    <p>
+        날짜/시간 관련 객체
+    </p>
+    <button onclick="test8();">실행</button>
+    <div class="area big" id="area8"></div>
+    <script>
+        // new Date(년, 월-1, 일, 시, 분, 초)
+        //const end/ebgin/now 변수 선언
+        // 1초 1000ms 5초 = 5000ms 10초 = 10000ms
+        function test8() {
+            const area8 = document.querySelector("#area8")
+            const now = new Date();
+            area8.innerHTML = "현재 날짜 및 시간 ( getTime() ): " + now.getTime() + "<br>";
+            const begin = new Date(2024, 12 - 1, 31, 9, 0, 0); //월은 0부터 시작해서 12월인 경우 11을 넣어야 함(Date(연도, 월-1, 일))
+            area8.innerHTML += "2024년 12월 31일 날짜로 설정된 시간:  " + begin.getTime() + "<br>";
+            const end = new Date(2025, 5, 18, 13, 0, 0); //월은 0부터 시작해서 12월인 경우 11을 넣어야 함(Date(연도, 월-1, 일))
+            area8.innerHTML += "2025년 6월 18일 13시 0분 0초로 설정된 시간:  " + end.getTime() + "<br>";
+            area8.innerHTML += "<br>";
+            area8.innerHTML += "현재" + now + "<br>";
+            area8.innerHTML += "개강일" + begin + "<br>";
+            area8.innerHTML += "종강일" + end + "<br>";
+            /*
+                연도 : getFullYear() -> YYYY / 2025/2034..
+                월   : getMonth() +1 -> mm / 01/02..]
+                일   : getDate()     -> dd / 10/23/12...
+                요일 : getDay()      -> 숫자 타입 (0: 일~ .. 6: 토) 조건문으로 표현 가능 
+                시   : getHour()     -> 
+                분   : getMinutes()
+                초   : getSeconds()
+            */
+            area8.innerHTML += "종강일에서 현재 날짜를 뺀 일 수: " + (end.getTime()-now.getTime()) + "<br>";
+            /*
+                1s == 1000ms 
+                1m == 1s *60 
+                1h == 1m * 60
+                1d == 1h *24
+            */
+           area8.innerHTML += "남은 일수: " + Math.round((end-now)/(1*1000*60*60*24)) + "<br>";
+            area8.innerHTML += "연도: " + end.getFullYear() + "<br>";
+            area8.innerHTML += "월: " + (end.getMonth() + 1) + "<br>";
+            area8.innerHTML += "일: " + end.getDate() + "<br>";
+
+            area8.innerHTML += "시: " + end.getHours() + "<br>";
+            area8.innerHTML += "분: " + end.getMinutes() + "<br>";
+            area8.innerHTML += "초: " + end.getSeconds() + "<br>";
+
+            area8.innerHTML += "요일: " +getDay() +" "+ getDayTextV2(end.getDay()) + "요일" + "<br>";
+
+            area8.innerHTML += "<hr>";
+            
+        }
+        /*function getDayText(dayNum) {
+            if (dayNum == 0) {
+                return "일";
+            } else if (dayNum == 1) {
+                return "월";
+            } else if (dayNum == 2) {
+                return "화";
+            } else if (dayNum == 3) {
+                return "수";
+            } else if (dayNum == 4) {
+                return "목";
+            } else if (dayNum == 5) {
+                return "금";
+            } else {
+                return "토";
+            }
+        }*/
+
+        function getDayText(dayNum) {
+            switch (dayNum) {
+                case 0:
+                    return "일";
+                case 1: 
+                    return "월";
+                case 2: 
+                    return "화";
+                case 3: 
+                    return "수";
+                case 4: 
+                    return "목";
+                case 5: 
+                    return "금";
+                default: 
+                    return "토";
+            }
+        }
+        function getDayTextV2(dayNum){
+            const days =["일", "월", "화", "수", "목", "금", "토"];
+            return days[dayNum];
+        }
+    </script>
+    
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </body>
 
