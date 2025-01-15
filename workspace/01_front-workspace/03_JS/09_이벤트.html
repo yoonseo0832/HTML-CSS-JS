@@ -129,15 +129,17 @@
     </p>
     <h4>a태그 테스트</h4>
     <a href="http://www.naver.com" onclick="alert('이동하시겠습니까?'); return false;">to naver</a>
-    <a href="http://www.naver.com" onclick="test1();">to naver</a>
+    <a href="http://www.naver.com" onclick="return test1();">to naver</a>
     <script>
         function test1() {
-            if(confirm('이동하시겠습니까?') == -1){
-                return false;
-            }else{
-                return true;
-            }
+        
+        if (confirm('이동하시겠습니까?')) {
+            return true;
+        } else {
+            alert('취소되었습니다!');
+            return false;
         }
+    }
     </script>
 
 
