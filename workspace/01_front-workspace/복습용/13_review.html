@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할 일 추가</title>
+    <style>
+        .wrap {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .task-form {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .task-form input {
+            flex: 1;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .task-form button {
+            padding: 5px 10px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>할 일 목록</h1>
+        <div class="task-form">
+            <input type="text" id="taskInput" placeholder="할 일을 입력하세요">
+            <button id="addTaskButton">추가</button>
+        </div>
+        <ul id="taskList"></ul> <!--대상이 없으면 안나옴-->
+    </div>
+
+    <script>
+        // TODO: 추가 버튼 클릭 이벤트 핸들러 추가 : 표준 이벤트 방식 사용
+        const addBtn = document.getElementById('addTaskButton');
+        addBtn.addEventListener("click", function () {
+            const taskInput = document.getElementById('taskInput');
+
+            if (taskInput.value == '') {
+                //입력된 값이 없는 경우
+                alert('할일이 없습니다.')
+            } else {
+                //입력값이 있는 경우 // 요소 노드 생성(li, span, button 요소 노드 생성함)
+                const liEl = document.createElement('li');
+                const spanEl = document.createElement('span');
+                const btnEl = document.createElement('button');
+                //li 요소에 class 속성을 추가
+                liEl.className = 'task-item';
+                //텍스트 노드 생성: {입력된 값}, 삭제
+                const inputTxt = document.createTextNode(taskInput.value);
+                // => input 요소의 입력된 값으로 텍스트 노드를 생성 (id명.vaule);
+                const delTxt = document.createTextNode('삭제');
+                //span요소와 텍스트  노드 결합
+                spanEl.appendChild(inputTxt);
+
+                btnEl.appendChild(delTxt);
+                
+                liEl.appendChild(spanEl);
+                
+                liEl.appendChild(btnEl);
+                //화면에 표시하기 위해 ul 요소에 li 요소 결합
+                document.getElementById('taskList').appendChild(liEl);
+
+                taskInput.value ='';
+
+                btnEl.addEventListener('click', function(){
+                    for(let taskInput of taskLsit){
+                        liEl.remove();
+                    }
+                })
+            }
+            
+        });
+    
+
+        /*
+          * 추가 버튼 클릭 시 수행할 내용 *
+    
+          입력된 할 일 정보를 확인하여 값이 없을 경우 "할 일을 입력하세요!" 알림창 표시
+          값이 있을 경우 ul#taskList 요소 영역에 아래와 같은 노드 추가
+    
+            <li class="task-item"><span>{입력된값}</span><button>삭제</button></li>
+            * 요소노드(Element) : 태그 자체
+            * 텍스트노드(TextNode) : 내용 부분
+            * 요소객체.className : 태그에서의 class 속성
+    
+          그 후, 할 일을 입력하는 요소를 초기화 (''으로 변경)
+        */
+
+    </script>
+</body>
+
+</html>

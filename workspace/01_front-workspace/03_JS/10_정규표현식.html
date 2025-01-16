@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식</title>
+    <style>
+        .area{border: 2px solid red; height: 500px;}
+    </style>
+</head>
+<body>
+    <h1>정규표현식</h1>
+    <h3>
+        정규 표현식 : Regular Experssion(RegExp)
+    </h3>
+    <p>
+        특정 패턴을 가진 문자열을 찾거나
+        또는 찾아서 변경할 때 사용하는 형식<br>
+        정규표현식을 사용하면 문자열에 대한
+        특정 패턴 조건을 검사할 때 복잡하지 않게 할 수 있음
+    </p>
+    <h3>* 정규표현식 객체 생성 및 관련 메소트</h3>
+    <button onclick="test1();">실행</button><br>
+    <div class="area" id="area1"></div>
+    <script>
+        function test1(){
+            const area1 = document.getElementById('area1');
+            // 샘플 데이터
+            const str1 = "javascript jquery ajax";
+            const str2 = "java oracle html css";
+            //-----------------------------------
+
+            // 정규표현식 객체 생성 => 정규식 변수를 선언
+            const regexp1 = new RegExp('script');
+            // 1) RegExp 객체 생성 -> script 라는 패턴으로 생성함
+
+            const regexp2 = /script/; 
+            // 2) //를 사용하여 생성 -> script 라는 패턴으로 생성함
+            area1.innerHTML = regexp1 + "<br>";
+            area1.innerHTML = regexp2 + "<br><br>";
+            
+            area1.innerHTML = str1 +"<br>";
+            area1.innerHTML = str2 +"<br><br>";
+            /*
+                정규식 객체(RegExp)가 제공하는 메소드
+                    - 정규식변수.메소드명(문자열을 전달
+                    1) .test(문자열) : 문자열에서 졍규식 값과 일치하는 값이 있으면 true 반환, 없으먄 false 반환
+                    2) .exec(문자열) : 문자열에서 졍규식 값과 일치하는 값이 있으면 처음 배정된 값을 반환, 없으면 null 반한 
+            */
+           area1.innerHTML += "regexp1.test(str1) : "+ regexp1.test(str1) + "<br>";
+           area1.innerHTML += "regexp1.test(str2) : "+ regexp1.test(str2) + "<br><br>";
+
+           area1.innerHTML += "regexp1.exec(str1) : "+ regexp1.exec(str1) + "<br>";
+           area1.innerHTML += "regexp1.exec(str2) : "+ regexp1.exec(str2) + "<br><br>";
+
+           /*
+                문자열 객체(string)에서 제공하는 메소드
+
+                    - 문자열변수.메소드명(정규식변수)
+
+                    1) .match(정규식)  : 문자열에서 정규식 값과 일치하는 값이 있으면 
+                                        해당 값을 반환, 없으면 null 반환
+                    2) .search(정규식) : 문자열에서 정규식 값과 일치하는 값이 있으면 
+                                        해당 값의 시작인덱스 값을 반환, 없으면 -1 반환
+                    3) .replace(정규식, 바꿀값) : 문자열에서 정규식값과 일치하는 부분을 바꿀값으로 변환
+                    4) .split(정규식)  : 문자열에서 정규식에 해당하는 부분을 기준으로 쪼개서 배열로 반환
+            */
+           area1.innerHTML += "str1.match(regexp2) : " + str1.match(regexp2)+ "<br>";
+           area1.innerHTML += "str2.match(regexp2) : " + str2.match(regexp2)+ "<br><br>";
+           
+           area1.innerHTML += "str1.search(regexp2) : " + str1.search(regexp2)+ "<br>";
+           area1.innerHTML += "str2.search(regexp2) : " + str2.search(regexp2)+ "<br><br>";
+
+           area1.innerHTML += "str1.replace(regexp2, '스크립트') : "+str1.replace(regexp2,'스크립트') + "<br>";
+           area1.innerHTML += "str1 : "+str1 +"<br><br>"; //변경되지는 않음, 원본 배열을 변경되지 않음, 바꾸고 싶으면 대입해서 
+
+           //배열로 반환
+           area1.innerHTML += "str1.split(regexp2): "+ str1.split(regexp2)
+                           + "("+str1.split(regexp2).length+ ")" +"<br><br>";
+        }
+    </script>
+
+    <hr>
+
+    <h3>*메타 문자</h3>
+    <p>
+        메타 문자를 이용해서 정규식으로 검색 조건으로 삼을 '특정 패턴'을 설정<br>
+        문자열이 해당 정규식으로 설정한 특정 패턴이 만족되는 지
+        => regexp test()를 통해 통해 검사하거나, => 문자열 replace()를 통해 변환 가능
+    </p>
+    <button onclick="test2();">실행</button>
+    <div class="area" id="area2"></div>
+    <script>
+        function test2(){
+            const area2 = document.querySelector('#area2');
+            // 샘플 데이터-----------------------
+            const str = "javascript jquery ajax";
+            // ---------------------------------
+            // 1) ^ : 시작을 의미 (캐럿)
+            const regexp1 = /^j/; //패턴 생성=> j로 시작하는가?
+            area2.innerHTML = "/^j/ test : " + regexp1.test(str) + "<br>";
+            area2.innerHTML += "/^j/ replace : " + str.replace(regexp1, "kh") + "<br>";
+
+            // 2) [] : [] 내에 여러 문자들을 목록처럼 나열 -> 해당 문자들이 있는지 체크
+            const regexp2 = /[abc]/;
+            area2.innerHTML += "/[abc]/ test : "+ regexp2.test(str) + "<br>";
+            area2.innerHTML += "/[abc]/ replace : "+str.replace(regexp2, "***") +  "<br>";
+
+            // 3) $ : 끝을 의미
+            const regexp3 = /x$/;
+            area2.innerHTML += " /x$/ test : "+ regexp3.test(str) + "<br>";
+            area2.innerHTML += " /x$/ replace : "+str.replace(regexp3, 'y') + "<br>";
+
+            // if) j로 시작, x로 끝나는 패턴
+            const regexp4 = /^jx$/;
+            area2.innerHTML += '/^j x$/ j로 시작, x로 끝나는 : '+ regexp4.test("jx") +"<br>"; //따옴표가 무조건 있어야 함 문자열이라서"!"
+
+            // 4) . : 개행문자를 제외한 모든 문자 하나를 의미(영문, 숫자, 한글, 특수문자..) 개행문자 \n \t...
+            const regexp41 = /^j.x$/;
+            area2.innerHTML += "/^j.x$/ test : "+regexp41.test('jox')+"<br>";
+            area2.innerHTML += "/^j.x$/ test : "+regexp41.test('j x')+"<br>";
+            area2.innerHTML += "/^j.x$/ test : "+regexp41.test('jx')+"<br>";
+            area2.innerHTML += "/^j.x$/ test : "+regexp41.test('j\nx')+"<br>";
+            area2.innerHTML += "/^j.x$/ test : "+regexp41.test(str)+"<br>";
+
+            // 5) + : 앞의 패턴이 한 번 이상 반복됨을 의미.
+            const regexp42 = /^j.+x$/; // j로 시작하고 x로 끝나고 어떤 문자가 한번 이상 반복되는가?
+            area2.innerHTML += "/^j.+x$/ test: "+ regexp42.test("jox") +"<br>";
+            area2.innerHTML += "/^j.+x$/ test: "+ regexp42.test("joox") +"<br>";
+            area2.innerHTML += "/^j.+x$/ test: "+ regexp42.test(str)+"<br>";
+
+            const regexp43 = /^j,x$/;
+            area2.innerHTML += regexp43.test("jox")+"<br>";
+            // 6) 숫자로만 이루어진 문자열 검사
+            // 개수 상관없이, 적어도 한글자 이상인 숫자로만 이루어진 문자열을 검사하는 패턴
+            const regexp5 = /^[0-9]+$/;
+            area2.innerHTML += '/^[0-9]+$/ test : '+ regexp5.test('12345') +"<br>";
+            
+            //한글로만 이루어진 문자열 검사(자음, 모음. 결합)
+            const regexp6 = /^[ㄱ-ㅎㅏ-ㅣ가-힣]+$/;
+            area2.innerHTML += '/^[ㄱ-ㅎㅏ-ㅣ가-힣]+$/ test : ' + regexp6.test("안녕하세요") + "<br>"; //true
+            area2.innerHTML += '/^[ㄱ-ㅎㅏ-ㅣ가-힣]+$/ test : ' + regexp6.test("zzzzzㅋㅋㅋ@@@") + "<br>"; //false
+
+            //사용자에게 이름을 입력받아서 2글자 이산인 한글로만 이루어진 경우 "안녕 반가워, 알림창" 띄우기
+            //그렇지 않으면 "잘못된 입력입니다." 알림창 띄워보기
+            const myReg = /^[가-힣]{2,}$/;
+            const name = prompt('이름을 입력하세요: ');
+            if(myReg.test(name)){
+                // 조건에 맞는 경우
+                alert("안녕하세요, 반가워요");
+            }else{
+                //조건에 맞지 않는 경우
+                alert("잘못 입력했어요");
+            }
+        }
+    </script>
+
+    <hr>
+
+    <h3>* 플래그 문자</h3>
+    <p>
+        - i : 대소문자를 가리지 않고 비교(ignore)<br>
+        - g : 전역으로 비교(global)<br>
+        - m : 여러 줄 비교 (multiple)<br>
+    </p>
+    <button onclick="test3();">실행</button>
+    <div class="area" id="area3"></div>
+    <script>
+        function test3(){
+            const area3 = document.querySelector("#area3");
+
+            // 틀림 아래가 정답const lang = /^[a-z]&&[A-Z]||^[a-z]&&[A-Z][0-9]/;
+            /*const regexp1 = /^[a-zA-Z][a-zA-Z0-9]+$/;   플래그 문자 사용 안한 버전*/ 
+            const regexp1 = /^[a-z][a-z0-9]/i;
+            const sample = prompt("아무거나 입력하시오");
+            if(regexp1.test(sample)){
+                alert('잘 입력했네')
+            }else{
+                alert('잘못 입력했어')
+            }
+
+            const str = 'javaScript JQuery Ajax';
+            let regexp =/a/;
+            //처음에 발견한 a만 +로 replace
+            area3.innerHTML = '/a/ : '+ str.replace(regexp, "+") + "<br>";
+            // 모든 a 를 + 변경(대문자는 안됌)
+            regexp = /a/g;
+            area3.innerHTML += '/a/g : '+ str.replace(regexp, "+") + "<br>";
+            // 모든 a대소문자 모두 변경하려면 /a/gi 하면 됨
+            regexp = /a/gi;
+            area3.innerHTML += '/a/gi : '+ str.replace(regexp, "+") + "<br>";
+
+            // 플래그 문자 m 테스트 
+            const str3 = "JavaScript\nJQuery\nAjax";
+            console.log(str3);
+
+            let regexp7 = /^J/;
+            console.log(str3.replace(regexp7, '@'));
+
+            regexp7 = /^J/g; // g만 했는데 안됨
+            console.log(str3.replace(regexp7, '@'));
+
+            regexp7 = /^J/gm; // 여러줄을 비교
+            console.log(str3.replace(regexp7, '@'));
+
+        }
+    </script>
+</body>
+</html>
