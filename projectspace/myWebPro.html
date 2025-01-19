@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>yoonseolee</title>
     <link rel="stylesheet" href="myWebPro.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -16,24 +20,34 @@
             </div>
             <nav class="header-nav">
                 <ul>
-                    <li><a href="#mainPage">Home</a></li>
-                    <li><a href="#aboutPage">About</a></li>
-                    <li><a href="#projectPage">Projects</a></li>
-                    <li><a href="#skillPage">Skills</a></li>
+                    <li><a href="#mainPage"><img src="images/house.png"></a></li>
+                    <li><a href="#aboutPage"><img src="images/human.png"></a></li>
+                    <li><a href="#projectPage"><img src="images/code.png"></a></li>
+                    <li><a href="#projectPage"><img src="images/skill.png"></a></li>
+                    <li><a href="#skillPage"><img src="images/mail.png"></a></li>
                 </ul>
             </nav>
         </section>
         <section id="mainPage" class="pageSection-main">
-            <h2>Welcome to My Portfolio</h2>
+            <div id="mainContainer">
+                <h2 id="mainText1">YOONSEO<br>WEB-PORTFOLIO</h2>
+                <div id="mainText2">안녕하십니까, 저는 백엔드 개발자를 꿈꾸는 이윤서입니다.</div>
+            </div>
             <img src="" alt="" id="">
         </section>
-        <section id="aboutPage" class="pageSection">
-            <h2>About Me</h2>
+        <section id="aboutPage" class="pageSection-about">
+            <!--<h2 id="about-title">About Me</h2>-->
             <div class="about-content">
                 <div id="text-container">
-                    <h3 id="text-title">저를 소개합니다</h3>
+                    <h3 id="text-title">Introduce Myself</h3>
                     <p id="text-p">
-                        안녕하세요! 저는 컴퓨터융합소프트웨어학과 재학생 이윤서입니다.
+                        이름: 이윤서<br>
+                        나이: 22세<br>
+                        학력: 고려대학교 세종캠퍼스<br>
+                        컴퓨터융합소프트웨어학과 3학년 수료<br>
+                        경력: 없음<br>
+                        토익: 835점<br>
+                        대외활동: 대학교 연합 동아리 멋쟁이사자처럼 2024.03~2025.01 (1년활동)
                     </p>
                 </div>
                 <div id="image-container">
@@ -41,29 +55,36 @@
                 </div>
             </div>
         </section>
-        <section id="projectPage" class="pageSection">
-            <h2>Projects</h2>
+        <section id="projectPage" class="pageSection-project">
+            <!--<h2>Projects</h2>-->
             <div class="project-cards">
                 <div class="project-card">
-                    <h3>당근마켓 클론 코딩딩</h3>
-                    <p>Description of project 1.</p>
+                    <h3 class="project-title">당근마켓 클론 코딩</h3>
+                    <p class="project-p">HTML과 CSS만으로 당근마켓의 웹페이지를 구성하였습니다.
+                        <a class="project-veiw"
+                            href="https://yoonseo0832.github.io/karrotMarket_CloneCoding_Again/">view..</a>
+                    </p>
                 </div>
                 <div class="project-card">
-                    <h3>시퀀스 개발자 커뮤니티티</h3>
-                    <p>Description of project 2.</p>
+                    <h3 class="project-title">시퀀스 개발자 커뮤니티</h3>
+                    <p class="project-p">학교 동아리에서 팀프로젝트로 개발자 커뮤니티 웹사이트
+                        랜딩페이지와 로그인페이지 등을 프런트엔드 팀원으로 참여하였습니다.
+                        <a class="project-veiw-1" href="project/test.html">view..</a>
+                    </p>
                 </div>
                 <div class="project-card">
-                    <h3>C언어 기반 성적관리프로그램</h3>
-                    <p>Description of project 3.</p>
+                    <h3 class="project-title">미정</h3>
+                    <p class="project-p">Description of project 3.</p>
                 </div>
             </div>
         </section>
-        <section id="skillPage" class="pageSection">
+        <section id="skillPage" class="pageSection-skill">
             <h2>Skills</h2>
             <div class="skills-grid">
-                <div class="skill-icon">HTML</div>
-                <div class="skill-icon">CSS</div>
-                <div class="skill-icon">JS</div>
+                <div class="skill-icon" class="skillBox">HTML</div>
+                <div class="skill-icon" class="skillBox">CSS</div>
+                <div class="skill-icon" class="skillBox">JS</div>
+                <div class="skill-icon" class="skillBox">JAVA</div>
             </div>
         </section>
         <section id="footer">

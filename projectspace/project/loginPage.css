@@ -1,0 +1,217 @@
+@font-face {
+    font-family: 'SUIT-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    background-color: #151515;
+    color: #FFFFFF;
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-top {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #151515;
+}
+
+.header-top img {
+    width: 138px; 
+    margin-left: 100px;
+}
+
+.header-top ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 160px;
+}
+
+.header-top ul li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 28px;
+    font-family: 'Playfair Display';
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.header-top ul li a:hover {
+    color: #E32929;
+}
+
+#login-btn {
+    background: none;
+    color: #E32929;
+    border: 1px solid #E32929;
+    padding: 4px 24px;
+    margin-right: 100px;
+    width: 114px;
+    cursor: pointer;
+    font-size: 24px;
+    font-style:italic;
+    line-height: 33.6px;
+    font-family: 'Playfair Display';
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+#login-btn:hover {
+    background: #E32929;
+    color: white;
+}
+
+#content {
+    margin-top: 100px;
+    text-align: center;
+    padding: 20px;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.pageIcon {
+    margin: 0 auto;
+    margin-top: 240px;
+    display: block;
+}
+
+#content-title {
+    font-size: 44px;
+    font-weight: 500;
+    margin-top: 60px;
+    line-height: 61.6px;
+    margin-bottom: 120px;
+}
+
+#wrongId{
+    visibility: hidden;
+    color: #E32929;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+    font-family: 'SUIT-Regular';
+}
+
+input {
+    background-color: #212121;
+    color: #FFFFFF;
+    border: none;
+    height: 67px;
+    width: 45%;
+    margin: 20px auto;
+    padding: 16px 115px;
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 27px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease, outline 0.3s ease;
+}
+input[type="password"]{
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+}
+input::placeholder {
+    color: #757575;
+    font-size: 18px;
+    font-family: 'SUIT-Regular';
+}
+#findSet{
+    display:flex;
+    width: 45%;
+    margin: 0 auto;
+}
+.findText-id{
+    display: inline-block;
+    color: #BDBDBD;
+    font-size: 14px;
+    margin: 20px 0px;
+    text-decoration: none;
+    font-family: 'Noto Sans', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.findText-pwd{
+    display: inline-block;
+    color: #BDBDBD;
+    font-size: 14px;
+    margin: 20px 0px;
+    text-decoration: none;
+    font-family: 'Noto Sans', sans-serif;
+    padding-left: 235px;
+    transition: color 0.3s ease;
+}
+
+.findText:hover {
+    color: #E32929;
+}
+
+#content-login-btn, #content-member-btn {
+    height: 56px;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 28px;
+    color: white;
+    line-height: 42px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+#arrow{
+    vertical-align: -6px;
+    margin-left: 24px;
+}
+
+#content-login-btn {
+    background-color: #E32929;
+    height: 67px;
+    width: 45%
+}
+#btns{
+    display:flex;
+    flex-direction: column;
+    margin-top: 120px;
+    margin-bottom: 500px;
+}
+
+#content-login-btn:hover {
+    background-color: #B22222;
+}
+
+#content-member-btn {
+    background-color: transparent;
+    border: 2px solid #E32929;
+    color: #E32929;
+        margin-top: 20px;
+    height: 67px;
+    width: 45%
+}
+
+#content-member-btn:hover {
+    background-color: #E32929;
+    color: white;
+}
+
+#member-arrow-merg{
+    margin: 0;
+}
