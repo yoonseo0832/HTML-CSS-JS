@@ -1,7 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1, h2, h3 {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>yoonseolee</title>
@@ -16,7 +40,7 @@
     <div id="content">
         <section id="header">
             <div class="header-logo">
-                <h1><a href="#mainPage">Yoonseo Lee</a></h1>
+                <h1>Yoonseo Lee</h1>
             </div>
             <nav class="header-nav">
                 <ul>
@@ -31,9 +55,7 @@
         <section id="mainPage" class="pageSection-main">
             <div id="mainContainer">
                 <h2 id="mainText1">YOONSEO<br>WEB-PORTFOLIO</h2>
-                <div id="mainText2">안녕하십니까, 저는 백엔드 개발자를 꿈꾸는 이윤서입니다.<br>앞으로 잘부탁드립니다!</div>
-                <div class="pcMonitor"><img src="images/pcandtab.png"></div>
-                <div class="me"><img id='image-size' src="images/cp1.png"></div>
+                <div id="mainText2">안녕하십니까, 저는 백엔드 개발자를 꿈꾸는 이윤서입니다.</div>
             </div>
             <img src="" alt="" id="">
         </section>
@@ -60,7 +82,6 @@
             <h2 class="title">Projects</h2>
             <div class="project-cards">
                 <div class="project-card">
-                    <div class="project-image"><img id="picture-1" src="images/carrot.png"></div>
                     <h3 class="project-title">당근마켓 클론 코딩</h3>
                     <p class="project-p">HTML과 CSS만으로 당근마켓의 웹페이지를 구성하였습니다.
                         <a class="project-veiw"
@@ -68,7 +89,6 @@
                     </p>
                 </div>
                 <div class="project-card">
-                    <div class="project-image"><img id="picture-2" src="images/sequence.png"></div>
                     <h3 class="project-title">시퀀스 개발자 커뮤니티</h3>
                     <p class="project-p">학교 동아리에서 팀프로젝트로 개발자 커뮤니티 웹사이트
                         랜딩페이지와 로그인페이지 등을 프런트엔드 팀원으로 참여하였습니다.
@@ -82,45 +102,25 @@
             </div>
         </section>
         <section id="skillPage" class="pageSection-skill">
-            <h2 id="skill-title">Skills</h2>
+            <h2 class="title">Skills</h2>
             <div class="skills-grid">
-                <div class="skillBox">
-                    <img class="code-icon" src="images/html.png">
-                </div>
-                <div class="skillBox">
-                    <img class="code-icon" src="images/css.png">
-                </div>
-                <div class="skillBox">
-                    <img class="code-icon" src="images/js.png">
-                </div>
-                <div class="skillBox">
-                    <img class="code-icon" src="images/java.png">
-                </div>
-            </div>
-            <div class="skill-textbox">
-                <p id="skill-p">C Language, C++ Language, REACT, Python 등의 언어도 사용해본적이 있으며,<br>언어 외에도  리눅스의 우분투를 활용해 팀과제를 수행한 경험이 있습니다. </p>
+                <div class="skill-icon" class="skillBox">HTML</div>
+                <div class="skill-icon" class="skillBox">CSS</div>
+                <div class="skill-icon" class="skillBox">JS</div>
+                <div class="skill-icon" class="skillBox">JAVA</div>
             </div>
         </section>
         <section id="contactPage" class="pageSection-contact">
-            <h2 id="contact-title">Contect Me</h2>
-            <div class="contact-container">
-                <img id="contact-image" src="images/cp2.png">
-            </div>
-            <div class="contact-text">
-                <p id="contact-email">이메일: yoonseo0832@gmail.com</p>
-                <p id="contact-phone">연락처: 010-7134-7094</p>
-                <div class="contact-box">
-                    <a href="https://github.com/yoonseo0832?tab=repositories"><img src="images/github.png"class="contact-icon-1"></a>
-                    <p class="contact-p">github</p>
-                </div>
-                <div class="contact-box">
-                    <a href="https://velog.io/@tony0712/posts"><img src="images/velog.png" class="contact-icon-2"></a>
-                    <p class="contact-p">velog</p>
-                </div>
+            <h2 class="title">Contect Me</h2>
+            <div class="skills-grid">
+                <div class="skill-icon" class="skillBox">HTML</div>
+                <div class="skill-icon" class="skillBox">CSS</div>
+                <div class="skill-icon" class="skillBox">JS</div>
+                <div class="skill-icon" class="skillBox">JAVA</div>
             </div>
         </section>
         <section id="footer">
-            <p id="footer-p">&copy; 2025 Yoonseo Lee. All rights reserved.</p>
+            <p>&copy; 2025 Yoonseo Lee. All rights reserved.</p>
         </section>
         <script>
             window.addEventListener('scroll', function () {
@@ -130,7 +130,7 @@
                     return;
                 }
 
-                console.log('Scroll position:', window.scrollY);
+                console.log('Scroll position:', window.scrollY); // 현재 스크롤 위치를 출력
                 if (window.scrollY > 0) {
                     header.classList.add('scrolled');
                     console.log('Class "scrolled" added to #header');
