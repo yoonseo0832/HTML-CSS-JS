@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자유주제 - 나를 소개하는 페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        @font-face {
+            font-family: 'MaruBuri';
+            src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot);
+            src: url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff2) format("woff2"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/MaruBuri/MaruBuri-Regular.ttf) format("truetype");
+        }
+
+        #name {
+            background-color: blue;
+            color: white;
+            font-family: 'MaruBuri';
+            text-align: center;
+        }
+
+        .myGallery {
+            display: flex;
+            background-color: cornflowerblue;
+            
+        }
+
+        .image {
+            width: 250px;
+            height: 180px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: auto;
+        }
+
+        #videoFile {
+            display: block;
+            position: absolute;
+            width: 250px;
+            height: auto;
+            margin-top: 200px;
+        }
+
+        .introMe {
+            background-color: bisque;
+            position: relative;
+            margin-top: 200px;
+        }
+
+        #intro-p {
+            font-size: 18px;
+            font-family: 'MaruBuri';
+            background-color: black;
+            color: lightgreen;
+            font-style: italic;
+            width: 400px;
+            height: 250px;
+            margin: auto;
+            margin-bottom: 100px;
+            text-align: left;
+            padding-top: 10px;
+            text-wrap-style: pretty;
+        }
+
+        .toSite {
+            position: relative;
+        }
+
+        #naver {
+            font-size: larger;
+            color: white;
+            background-color: green;
+            padding: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            position: absolute;
+            left: 65%;
+        }
+
+        #velog {
+            position: absolute;
+            left: 50%;
+            top: 155%;
+        }
+
+        .introMe>h3 {
+            font-family: 'Playfair Display';
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .inputs {
+            width: 400px;
+            height: 300px;
+            background-color: burlywood;
+            margin: 0 auto;
+            border: 1.5px solid red;
+        }
+
+        .inputs input {
+            margin-top: 8px;
+            margin-left: 10%;
+        }
+        
+        .inputs h3 {
+            color: #854985;
+            background-color: chocolate;
+            font-size: x-large;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 900;
+            font-style: oblique;
+        }
+        th{
+            background-color: #854985;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="name">안녕하세요, 저는 이윤서입니다!</h2>
+    <table border="1" style="color:blueviolet; background-color: lightpink; margin: auto; width: 600px; margin-bottom: 30px;">
+        <caption>이번주 일정</caption>
+        <tr>
+            <th>요일</th>
+            <th>시간</th>
+            <th>일정</th>
+        </tr>
+        <tr>
+            <td>화요일</td>
+            <td>7시</td>
+            <td>치과진료</td>
+        </tr>
+        <tr>
+            <td>수요일</td>
+            <td>10시</td>
+            <td>화상회의</td>
+        </tr>
+        <tr>
+            <td>토요일</td>
+            <td rowspan="2">1시</td>
+            <td rowspan="2">강아지 산책</td>
+        </tr>
+        <tr>
+            <td>일요일</td>
+        </tr>
+        <tr>
+            <td colspan="2">다음주/9시</td>
+            <td>학원</td>
+        </tr>
+    </table>
+    <div class="myGallery">
+        <img class="image" src="resource/cp1.png" alt="노트북뒤나">
+        <img class="image" src="resource/cp2.png" alt="나">
+        <img class="image" src="resource/cat.jpg" alt="고양이">
+        <video class="image" src="resource/sample.mp4"></video>
+        <video  class="image" src="resource/video.mp4"></video>
+    </div>
+    
+    <div class="toSite">
+        <a id="velog" href="https://velog.io/@tony0712/posts"><img src="resource/velog.png" alt=""></a>
+        <a id="naver" href="https://www.naver.com/">네이버</a>
+    </div>
+    <div class="introMe">
+        <h3>저는 03년생이고, 게임을 좋하하는 대학생입니다.<br>my age is 22, i like game. i am student.</h3>
+        <p id="intro-p">주로 심즈, 리그오브레전드, 배틀그라운드, 마인크래프트 등을 플레이하고, 취미는 강아지와 산책을 가거나 혼자 한강에 걸으러 가는 것입니다. 쉬는 날에는 약속이 없는한 산책
+            이외에은 외출을 거의 하지 않습니다. 학교에서 배운 이론으로는 도저히 4학년 졸업작품을 만들 실력이 안되서 휴학하고 학원에 오게 되었습니다. 학원에서 학교에서 배운 내용 외에도 자세히 배우게
+            되어 매우 만족합니다. 이번 6개월동안 열심히 해서 나의 코딩 실력과 이해도를 높이고 싶습니다.
+        </p>
+    </div>
+
+    <div class="inputs">
+        <h3 style="text-align: center;">로그인</h3>
+        <pre style="font-family: 'MaruBuri'; font-weight:bold">
+                                아이디
+                      <input type="text" id="userId" required><br>
+                                비밀번호
+                      <input type="password" id="userPwd" required><br>
+                                이메일 
+                      <input type="email" id="userEmail" required>
+                                                                            <button type="submit">로그인</button>
+        </pre>
+    </div>
+</body>
+</html>

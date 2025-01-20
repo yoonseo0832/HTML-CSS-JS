@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--오프라인 방식도 있음 . -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <style>
+        .addItem{color:lightcoral;}
+        .area{ width:100px; height: 100px; background-color: brown; color: white; text-align: center; line-height: 100px;}
+        .bgPink{background-color: pink;}
+    </style>
+</head>
+<body>
+    <h1>요소 생성 및 제거</h1>
+    <h3>삽입 관련 메소드</h3>
+    <p>선택된 요소를 기준으로 새로운 요소를 추가하는 메소드</p>
+    <pre>
+        $(A).append(B) : A 요소 내에 뒷부분에 B 요소를 추가
+        $(A).prepend(B) : A 요소 내에 앞앞부분에 B 요소를 추가
+    </pre>
+    <pre>
+        $(A).after(B) : A 요소 다음에 B 요소를 추가
+        $(A).before(B) : A 요소 전에 B 요소를 추가
+    </pre>
+    <h1 id="test1">
+        <span>A</span>
+    </h1>
+    <h1 id="test2">
+        <span>A</span>
+    </h1>
+    <h1 id="test3">
+        <span>A</span>
+    </h1>
+    <h1 id="test4">
+        <span>A</span>
+    </h1>
+    <script>
+        $(function(){
+            $('#test1').append("<span class='addItem'>B1</span>");
+
+            $('#test2').prepend("<span class='addItem'>B2</span>");
+
+            $("#test3").after("<span class='addItem'>B3</span><br>");
+
+            $("#test4").before("<span class='addItem'>B4</span>");
+
+            $("#test1").appendTo("<span>C</span>");
+        });
+    </script>
+    
+</body>
+</html>

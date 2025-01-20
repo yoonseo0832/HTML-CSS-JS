@@ -254,6 +254,8 @@ img#image-size {
     text-align: center;
     padding-top: 8%;
     position: relative;
+    font-size: 22px;
+    font-family: 'MaruBuri';
     background-color: white;
 }
 
@@ -271,6 +273,7 @@ img#image-size {
     padding-top: 30%;
     font-family: 'MaruBuri';
     font-weight: 600;
+    font-size: 20px;
     text-wrap-style: balance;
     z-index: 1000;
 }

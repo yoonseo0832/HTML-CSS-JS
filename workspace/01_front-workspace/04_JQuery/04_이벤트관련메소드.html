@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery - 이벤트 관련 메소드</title>
+    <!--오프라인 방식(다운로드)-->
+    <script src="resources/js/jquery-3.7.1.min.js"></script>
+    <!--온라인 방식(CDN)
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
+        crossorigin="anonymous"></script>
+    -->
+    <style>
+        .area{
+            border: 1px solid red;
+            height: 500px;
+            width: 500px;
+        }
+        .qa_box div{
+            background-color: chocolate;
+            border: 1px solid red;
+            width: 300px; height: 30px; 
+            line-height: 30px;
+            text-align: center; 
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .qa_box p{
+            border: 1px solid blueviolet;
+            width: 300px; height: 100px;
+            border-radius: 10px;
+            margin-top: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h3>이벤트 관련 메소드</h3>
+    <div class="area" id="area1">
+        <h6>이곳을 클릭하면 h6요소가 추가됩니다</h6>
+        <div>
+            <h6>hello</h6>
+            <h5>BELLO~!</h5>
+        </div>
+    </div>
+    <script>
+        // js 방식 onload = function(){}
+        // jQuery 방식
+        $(function(){
+            //이벤트 메소드 :click
+            //$("#area1>h6").click(function(){
+            //    $('#area1').append("<h6>태그 클릭 후 추가된 h6요소</h6>")
+            //});
+            // => 동적으로 추가된(이벤트 이후 추가된) 요소에는 이벤트 적용 안됨!
+            
+            // 메소드 .on 사용
+            //$("#area1 > h6").on("click", function(){
+            //     $("#area1").append("<h6>메소드를 통해 추가된 h6요소</h6>");
+            //});
+            // => 동적으로 추가된 요소에는 이벤트 적용 안됨!
+
+            // *부모 요소로부터 on 메소드 사용, 부모의 선택자를 target을 추가함
+            $('#area1').on("click", "> h6", function(){
+                $("#area1").append("<h6>부모요소를 통한 이벤트로 추가된 h6요소</h6>");
+            });
+            //=> 동적으로 추가된 요소도 이벤트가 잘 적용됨!
+        })
+    </script>
+
+    <hr>
+
+    <h3>키보드 관련 이벤트</h3>
+    <pre>
+        - keydown | keypress : 키가 눌려질 때 발생되는 이벤트
+            > keydown  : 키보드의 모든 키가 눌려질때 발생
+            > keypress : 키보드의 펑션키(Fn),기능키, 한글 제외한 키가 눌려질 때 발생
+            
+        - keyup : 키가 눌려진 후 떼어질 때 발생되는 이벤트
+    </pre>
+    <em>150자 내외로 작서하시오.</em>
+    <!--한줄 입력창-->
+    <input type="text" name="" id=""><br><br>
+    <!--여러 줄 입력창-->
+    <textarea id="content" cols="30" rows="10"
+    style="resize: none;"></textarea>
+    <span id="count">0</span> /150
+    <script>
+        $(function(){
+            $("#content").keyup(function(){
+                console.log($(this).val());
+                let len = $(this).val().length;
+                if(len > 150){
+                    //입력된 값의 길이가 150을 초과한 경우
+                    alert("더 이상 입력할 수 없습니다.");
+
+                    const content = $(this).val().slice(0, 150);
+                    $(this).val(content);
+                }
+                $("#count").text(len);
+                //text() : innerText 속성에 대한 메소드 .html()
+            })
+        });
+    </script>
+    
+    <hr>
+
+    <h3>*효과를 주는 메소드</h3>
+    <h4>fadeIn() fadeOut() fadeToggle()</h4>
+    <button id="btn-fdIn">보기</button>
+    <button id="btn-fdOut">숨기기</button>
+    <button id="btn-fdToggle">토글</button>
+    <br>
+    <img id="img01" src="resources/images/dog.jpg" width="300">
+    <script>
+        $(function(){
+            //보기 버튼 클릭 이벤트
+            $('#btn-fdIn').click(function(){
+                $("#img01").fadeIn();
+            });
+            //숨기기 버튼 클릭 이벤트
+            $("#btn-fdOut").click(function(){
+                $("#img01").fadeOut();
+            });
+            //토글 버튼 클릭 이벤트
+            $("#btn-fdToggle").on("click", function(){
+                $("#img01").fadeToggle();
+            });
+        });
+    </script>
+
+    <hr>
+    <br><br><br>
+    <h4>slideDown() slideUp() slideToggle()</h4>
+    <div class="qa_box">
+        <div>Q. 반품은 언제되나요?</div>
+        <p>A. 택배사의 사정에 따라 2일정도 소요됩니다</p>
+
+        <div>Q. 택배기사가 물건을 안줘요</div>
+        <p>A. 달라고 부탁해</p>
+        
+        <div>Q. 오배송</div>
+        <p>A. 미안</p>
+        
+        <div>Q. 배송이 안와요</div>
+        <p>A. 기다려</p>
+        
+        <div>Q. 판매자는 누구인가요?</div>
+        <p>A. 나요!</p>
+    </div>
+    <script>
+        $(function(){
+            $(".qa_box div").click(function(){
+                // $(this). 클릭 이벤트가 발생된 div 요소
+                // $(this).next() 해당 요소 바로 다음의 요소 예제에서 p태그
+                const $p = $(this).next(); 
+                // $를 붙인 변수명은 jQuery 방식으로 선택된 요소라는 의미(구분용으로*참고해)
+                $p.slideToggle(); // 아래의 if문과 동일함
+                
+                /*()
+                if($p.css("display") == 'none'){
+                    //p요소의 display 속성이 none인 경우 
+                    $p.slideDown();
+                }else{
+                    $p.slideUp();
+                }*/
+            })
+        })
+    </script>
+</body>
+</html>
