@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI 구현 평가</title>
+    <style>
+        #login-area{
+            /* display :none; */
+            background-color: lightblue;
+            width: 200px;
+            height: 400px;
+            /* padding-left: 30px; */
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            /*텍스트만 적용 X 작아놓은 영역의 inline요소를 중앙으로*/
+        }
+        .msg, .pwdMsg{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!--로그이 버튼, 로그인 화면(close버튼, 
+    (아이디, 비밀번호 입력요소), 
+    login버튼, 메세지 표시 요소)-->
+    <button onclick="showLoginArea();">로그인</button>
+    <div id="login-area">
+        <button onclick="hideLoginArea();">Close</button>
+        <div class="area">안녕</div>
+        <form action="login" method="post"> 
+            <!--url 비번 노출 안되게 post방식으로-->
+            <label for="userId">아이디</label>
+            <input type="text" name="userId" id="userId" required>
+            <p class="msg">이 입력란을 작성하세요.</p>
+            <br>
+            <label for="userPwd">비밀번호</label>
+            <input type="password" 
+                onclick="showPassMsg();" 
+                name="userPwd" 
+                id="userPwd" 
+                required>
+            <p class="msg">이 입력란을 작성하세요.</p>
+            <p class="pwdMsg">영문자 대/소문자, 특수문자, 숫자 포함 8~32자</p>
+            <br>
+            <button onclick="showMsg();">Login</button>
+        </form>
+    </div>
+    <Script>
+        function showLoginArea(){
+            // 요소를 화면에서 표시
+            document.getElementById("login-area").style.display="block";
+        }
+        function hideLoginArea(){
+            // 요소를 화면에서 제거
+            document.getElementById("login-area").style.display="none";
+        }
+        function showPassMsg(){
+            // .pwdMsg 요소 화면 표시
+            document.querySelector('.pwdMsg').style.display="block";
+            alert("영문자 대/소문자, 특수문자, 숫자 포함 8~32자");
+        }
+        function showMsg(){
+            const userId = document.getElementById("userId")
+            const userPwd = document.getElementById("userPwd")
+
+            if(userId.value == ''){
+                document.querySelector("#userId + p.msg").style.display="block";
+            }else{
+                document.querySelector("#userId + p.msg").style.display="none";
+            }
+            //아이디 입력 요소의 값이 없는 경우, 메세지 표시
+
+            if(userPwd.value == ''){
+                document.querySelector("#userPwd + p.msg").style.display="block";
+            }else{
+                //keyup을 사용할 수 있음
+                document.querySelector("#userPwd + p.msg").style.display="none";
+            }
+            //비밀번호 입력 요소의 값이 없는 경우, 메세지 표시
+        }
+    </Script>
+</body>
+</html>
