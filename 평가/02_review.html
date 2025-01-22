@@ -108,22 +108,29 @@
             const userPwd = document.getElementById("userPwd");
             const userEmail = document.getElementById("userEmail");
 
-            if(userId.value==''){
-                document.querySelectorAll('#userId + p.noneFill').style.display="block";
-            }else{
-                document.querySelectorAll('#userId + p.noneFill').style.display="none";
+            const userIdEr = document.querySelector('#userId + p.noneFill');
+            if (userId.value === '') {
+                userIdEr.style.display = "block";
+            } else {
+                userIdEr.style.display = "none";
             }
-            if(userPwd.value==''){
-                document.querySelectorAll('#userPwd + p.noneFill').style.display="block";
-            }else{
-                document.querySelectorAll('#userPwd + p.noneFill').style.display="none";
+
+            const userPwdEr = document.querySelector('#userPwd + p.noneFill');
+            if (userPwd.value === '') {
+                userPwdEr.style.display = "block";
+            } else {
+                userPwdEr.style.display = "none";
             }
-            if(userEmail.value==''){
-                document.querySelectorAll('#userEmail + p.noneFill').style.display="block";
-            }else{
-                document.querySelectorAll('#userEmail + p.noneFill').style.display="none";
+
+            const userEmailEr = document.querySelector('#userEmail + p.noneFill');
+            if (userEmail.value === '') {
+                userEmailEr.style.display = "block";
+            } else {
+                userEmailEr.style.display = "none";
             }
         }
+
+
     </script>
 </body>
 
